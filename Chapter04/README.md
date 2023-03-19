@@ -242,4 +242,12 @@ In the machine, they are stored as
 [104, 101, 108, 108, 111]
 [116, 104, 101, 114, 101]
 ```
+- A built-in predicate `name/2` can be utilized to convert between a string and a list of ASCII codes.
+- The first parameter is a string wthile the second is a list.
 
+## 4.4 Structures
+- PROLOG does not support global variables. The scope of a variable is within a clause.
+- `positive(X) :- X > 0.`
+- `greaterThan(X, Y) :- greaterThan(X, Z), greaterThan(Z, Y).```
+- The `X` in the first clause and the `X` in the second clause are irrelevant.
+- Data structures can be built with user-defined predicates to pass value from one clause to the other. A data structure is an atom or the composition of atoms.
