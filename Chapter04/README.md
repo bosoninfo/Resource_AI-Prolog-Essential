@@ -106,20 +106,35 @@ weekdays([monday, tuesday, wednesday, thursday, friday]).
 like([pear]).
 ```
 *Run*
-```prolog
+```
 ?- weekedays(X).
 X = [monday, tuesday, wednesday, thursday, friday].
 
 ?- weekdays([Frist_day|Rest_of_days]).
-First_day = Monday. % a term
+First_day = monday. % a term
 Rest_of_days = [tuesday, wednesday, thursday, friday].
 
 ?- weekdays([First_day, Second_day|Rest_of_days]).
-First_day = Monday.
-Second_day = Tuesday.
+First_day = monday.
+Second_day = tuesday.
 Rest_of_days = [wednesday, thursday, friday].
 
 ?- like([X|Y]).
-X = Pear.
+X = pear.
 Y = [].
+```
+***Example 4.2.3***
+```prolog
+/* memberL.pl */
+memberL(X, [X|T]).
+memberL(X, [Y|T]) :- memberL(X, T).
+```
+*Run*
+```
+% test if X is an element in the list.
+?- memberL(c, [a, b, c, d]).
+true
+
+?- memberL(a, [1, 2, 3, 4]).
+false
 ```
