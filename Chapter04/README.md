@@ -247,5 +247,43 @@ In the machine, they are stored as
 
 ## 4.4 Structures
 - PROLOG does not support global variables. The scope of a variable is within a clause.
-- For example, `positive(X) :- X > 0.` and `greaterThan(X, Y) :- greaterThan(X, Z), greaterThan(Z, Y).`. The `X` in the first clause and the `X` in the second clause are irrelevant.
+- For example, in `positive(X) :- X > 0.` and `greaterThan(X, Y) :- greaterThan(X, Z), greaterThan(Z, Y).`, the `X` in the first clause and the `X` in the second clause are irrelevant.
 - Data structures can be built with user-defined predicates to pass value from one clause to the other. A data structure is an atom or the composition of atoms.
+
+***Example 4.4.1***
+```prolog
+student(may, smith, 21061985, sbcs, 2021).
+book(prolog, ivan, bratko, cs, ai, ai_language).
+borrow(21061985, prolog).
+```
+- `student`, `book`, and `borrow` are structures. 
+- They are single-layer data structure (ie. their arguments are terms).
+- If the structures are loaded in the prolog executor, we can enter queries as below.
+
+*Run*
+```
+?- student(may, smith, X, Y, Z).
+X = 21061985,
+Y = sbcs,
+Z = 2021 ;
+
+?- book(U, V, W, cs, ai, X).
+U = prolog, 
+V = ivan, 
+W = bratko, 
+X = a_language ;
+
+?- borrow(X, prolog), student(Y, Z, X, _, _).
+X = 21061985,
+Y = may,
+Z = smith ;
+```
+- We can also build multi-layered structures with user-defined predicates.
+- A multi-layered structure is a structure that contains others structures (the composition of atoms).
+
+***Example 4.4.2***
+```prolog
+student(names(may, smith), 21061985, sbcs, 2021).
+book(prolog, author(ivan, bratko), category(cs, area(ai, subject(ai_language)))).
+```
+*Run*
