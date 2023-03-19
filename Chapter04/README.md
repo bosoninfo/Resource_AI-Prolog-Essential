@@ -64,4 +64,19 @@ Alternatively, you can write the program as
 abstract :- write('enter X '), read(X), (X < 0 -> Y is 0 - X, write(Y); write(X)).
 ```
 ### Excercise 4.1.5
-Write a program `voting.pl` that acts as a vote counting machine. It repeatedly reads people’s vote (1 for “support” and 1 for “against”). The counting is terminated when 0 is entered. It, then, displays the numbers of support votes and against votes.
+Write a program `voting.pl` that acts as a vote counting machine. It repeatedly reads people’s vote (1 for “support” and -1 for “against”). The counting is terminated when 0 is entered. It, then, displays the numbers of support votes and against votes.
+<details>
+  <summary>sample answer</summary>
+  
+  ```prolog
+  /* voting.pl */
+  voting :- select(0, 0). % select (support, against).
+  
+  select(S, A) :- input(X), (X = 0 -> terminate(S, A); continue(S, A, X)).
+  continue(S, A, X) :- (X > 0 -> S1 is S + 1, select(S1, A); A1 is A + 1, select(S, A1)).
+  
+  input(X) :- write('type 1 for support or -1 for against or 0 to terminate the voting program '), read(X), nl.
+  
+  terminate(S, A) :- write(S), write(' support votes and '), write(A), write(' against votes.'), nl.
+  ```
+</details>
