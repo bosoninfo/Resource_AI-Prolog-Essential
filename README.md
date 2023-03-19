@@ -1,5 +1,9 @@
 # Resource_AI-Prolog-Essential
 
+|![image](https://user-images.githubusercontent.com/19381768/226217715-226fa261-1825-451d-8b9b-d2631a17aecd.png)|
+|:--:|
+|SWI-Prolog|
+
 Artificial intelligence (AI) has rapidly evolved in recent years, and logic and reasoning have been fundamental to the field since its inception. Prolog is a logic programming language that has been widely used in AI research and development due to its ability to implement logical and rule-based systems. This tutorial material will provide an overview of AI programming and reasoning, and focus on the use of Prolog for logic-based programming.
 
 The first section will introduce the field of AI programming and reasoning, providing a brief history and overview of its applications. In the subsequent sections, we will delve into the basics of logic, including propositional logic, first-order logic, and higher-order logic. These logics will be illustrated with examples and exercises to solidify your understanding.
