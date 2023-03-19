@@ -210,5 +210,21 @@ false
 ?- maxL([5, 7, X], 20).
 X = 20 ;
 false
-```
 
+?- maxL([2,1,5,4,7],20).
+false
+```
+***Example 4.2.7***
+```prolog
+del([], X, []).
+del([X|T], X, Rest) :- del(T, X, Rest).
+del([Y|T], X, [Y|Rest]) :- X \= Y, del(T, X, Rest).
+```
+`del(T, X, R)` deletes the element X from the list `T` and assigns the rest of the list to `R`.
+*Run*
+```
+?- del([b, a, c, a], a, R).
+R = [b, c] ;
+false
+```
+The pre-built predicate `delete/3` functions exactly the same.
