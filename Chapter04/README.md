@@ -228,3 +228,18 @@ R = [b, c] ;
 false
 ```
 The pre-built predicate `delete/3` functions exactly the same.
+
+## 4.3 Strings
+- A string is a sequence of symbols encolosed in a pair of single quotation marks.
+- A string is stored as a list of ASCII codes in the computer memory. Consequently, list operations can be applied to a string.
+
+***Example 4.3.1***
+```prolog
+'hello', 'there'
+```
+In the machine, they are stored as
+```
+[104, 101, 108, 108, 111]
+[116, 104, 101, 114, 101]
+```
+
