@@ -137,4 +137,78 @@ true
 
 ?- memberL(a, [1, 2, 3, 4]).
 false
+
+% the available value in a list for a vairable.
+?- memberL(X, [a, b, c]).
+X = a ;
+X = b ;
+X = c ;
+false
+
+?- memberL(a, [X, b, c]).
+X = a ;
+false
 ```
+
+The pre-built predicate `member/2` functions exactly like memberL/2.
+
+```
+?- member(4, [3, 5, 4, 6]).
+true
+
+?- member(4, [1, 2, 3]).
+false
+```
+***Example 4.2.4***
+```prolog
+week_days([monday, tuesday, wednesday, thursday, friday]).
+writeL([]).
+writeL([H|T]) :- write(H), nl, writeL(T).
+```
+*Run*
+```
+?- week_days(X), writeL(X).
+monday
+tuesday
+wednesday
+thursday
+friday
+X = [monday, tuesday, wednesday, thursday, friday].
+false
+```
+***Example 4.2.5***
+```prolog
+week_days([monday, tuesday, wednesday, thursday, friday]).
+lengthL([], 0).
+lengthL([H|T], N) :- lengthL(T, N1), N is N1 + 1.
+```
+*Run*
+```
+?- week_days(X), lengthL(X, Y).
+X = [monday, tuesday, wednesday, thursday, friday],
+Y = 5 ;
+false
+
+?- lengthL([[purple, blue], [white, grey]], X).
+X = 2 ;
+false
+```
+
+`length/2` is a pre-built predicate for calculating length of a list.
+***Example 4.2.6***
+```prolog
+maxL([X], X) :- !.
+maxL([X|T], X) :- maxL(T, M), X > M.
+maxL([X|T], M) :- maxL(T, M), X =< M.
+```
+*Run*
+```
+?- maxL([2, 1, 5, 4, 7], X).
+X = 7 ;
+false
+
+?- maxL([5, 7, X], 20).
+X = 20 ;
+false
+```
+
