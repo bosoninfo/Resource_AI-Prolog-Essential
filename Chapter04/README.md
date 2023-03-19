@@ -15,7 +15,7 @@ condition(X) :- X > 0.
 then_comp :- write('positive'), nl.
 else_comp :- write('non-positive'), nl.
 ```
-Output
+*Run*
 ```
 ?- if_test(0).
 non-positive 
@@ -64,6 +64,7 @@ Alternatively, you can write the program as
 abstract :- write('enter X '), read(X), (X < 0 -> Y is 0 - X, write(Y); write(X)).
 ```
 **Excercise 4.1.5**
+
 Write a program `voting.pl` that acts as a vote counting machine. It repeatedly reads people’s vote (1 for “support” and -1 for “against”). The counting is terminated when 0 is entered. It, then, displays the numbers of support votes and against votes.
 <details>
   <summary>sample answer</summary>
@@ -104,12 +105,21 @@ Write a program `voting.pl` that acts as a vote counting machine. It repeatedly 
 weekdays([monday, tuesday, wednesday, thursday, friday]).
 like([pear]).
 ```
-Output
+*Run*
 ```prolog
 ?- weekedays(X).
 X = [monday, tuesday, wednesday, thursday, friday].
 
-?- weekdays([Frist_day | Rest_of_days]).
-First_day = monday.
+?- weekdays([Frist_day|Rest_of_days]).
+First_day = Monday. % a term
 Rest_of_days = [tuesday, wednesday, thursday, friday].
+
+?- weekdays([First_day, Second_day|Rest_of_days]).
+First_day = Monday.
+Second_day = Tuesday.
+Rest_of_days = [wednesday, thursday, friday].
+
+?- like([X|Y]).
+X = Pear.
+Y = [].
 ```
