@@ -76,7 +76,7 @@ Write a program `voting.pl` that acts as a vote counting machine. It repeatedly 
   /* voting.pl */
   voting :- select(0, 0). % initialise select (support, against).
   
-  select(S, A) :- input(X), (X = 0 -> terminate(S, A); continue(S, A, X)).
+  select(S, A) :- input(X), (X =:= 0 -> terminate(S, A); continue(S, A, X)).
   continue(S, A, X) :- (X > 0 -> S1 is S + 1, select(S1, A); A1 is A + 1, select(S, A1)).
   
   input(X) :- write('type 1 for support or -1 for against or 0 to terminate the voting program '), read(X), nl.
