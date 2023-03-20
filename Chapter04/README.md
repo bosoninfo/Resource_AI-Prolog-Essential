@@ -35,7 +35,7 @@ pt :- write('enter a for function a'), nl, write('enter b for function b'), nl.
 
 check(X) :- X == a, start(X), !.
 check(X) :- X == b, start(X), !.
-check(X) :- printMenu. % return to printMenu if input is not a or b
+check(_) :- printMenu. % return to printMenu if input is not a or b
 
 start(X) :- write('starting function '), write(X), nl.
 ```
