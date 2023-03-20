@@ -74,7 +74,7 @@ Write a program `voting.pl` that acts as a vote counting machine. It repeatedly 
   
   ```prolog
   /* voting.pl */
-  voting :- select(0, 0). % select (support, against).
+  voting :- select(0, 0). % initialise select (support, against).
   
   select(S, A) :- input(X), (X = 0 -> terminate(S, A); continue(S, A, X)).
   continue(S, A, X) :- (X > 0 -> S1 is S + 1, select(S1, A); A1 is A + 1, select(S, A1)).
@@ -257,6 +257,14 @@ appendL([H|T], L2, [H|L3]) :- appendL(T, L2, L3).
 X = [monday, tuesday, wednesday, thursday, friday],
 Week = [monday, tuesday, wednesday, thursday, friday, saturday, sunday] ;
 false
+```
+The pre-built predicate `forall/2` can be used to traverse a list, and perform an action.
+
+***Example 4.2.9***
+```
+?- forall(member(X, [purple, blue, green, orange, red]), (write(X), tab(4))).
+purple    blue    green   orange    red
+true
 ```
 
 ## 4.3 Strings
