@@ -9,8 +9,8 @@ if_test(X) :- else_component(X).
 ```
 ***Example 4.1.1***
 ```prolog
-if_test :- condition(X), then_comp, !.
-if_test :- else_comp.
+if_test(X) :- condition(X), then_comp, !.
+if_test(_) :- else_comp. % actually, we don't need to check the value of X here!
 condition(X) :- X > 0.
 then_comp :- write('positive'), nl.
 else_comp :- write('non-positive'), nl.
