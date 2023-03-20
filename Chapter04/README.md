@@ -7,6 +7,7 @@ Selection can be constructed by using two clauses. The basic pattern can be:
 if_test(X) :- condition(X), then_component(X), !.
 if_test(X) :- else_component(X).
 ```
+
 ***Example 4.1.1***
 ```prolog
 if_test(X) :- condition(X), then_comp, !.
@@ -44,6 +45,7 @@ Selection can also be constructed by using the pre-defined predicate `->/0`. The
 ```prolog
 if_test(X) :- (condition(X) -> then_comp(X); else_comp(X)).
 ```
+
 ***Example 4.1.3***
 ```prolog
 % the example 4.1.1 can also be written as follows
@@ -63,6 +65,7 @@ Alternatively, you can write the program as
 ```prolog
 abstract :- write('enter X '), read(X), (X < 0 -> Y is 0 - X, write(Y); write(X)).
 ```
+
 **Excercise 4.1.5**
 
 Write a program `voting.pl` that acts as a vote counting machine. It repeatedly reads people’s vote (1 for “support” and -1 for “against”). The counting is terminated when 0 is entered. It, then, displays the numbers of support votes and against votes.
@@ -105,6 +108,7 @@ Write a program `voting.pl` that acts as a vote counting machine. It repeatedly 
 weekdays([monday, tuesday, wednesday, thursday, friday]).
 like([pear]).
 ```
+
 *Run*
 ```
 ?- weekedays(X).
@@ -123,12 +127,14 @@ Rest_of_days = [wednesday, thursday, friday].
 X = pear.
 Y = [].
 ```
+
 ***Example 4.2.3***
 ```prolog
 /* memberL.pl */
 memberL(X, [X|T]).
 memberL(X, [Y|T]) :- memberL(X, T).
 ```
+
 *Run*
 ```
 % test if X is an element in the list.
@@ -159,12 +165,14 @@ true
 ?- member(4, [1, 2, 3]).
 false
 ```
+
 ***Example 4.2.4***
 ```prolog
 week_days([monday, tuesday, wednesday, thursday, friday]).
 writeL([]).
 writeL([H|T]) :- write(H), nl, writeL(T).
 ```
+
 *Run*
 ```
 ?- week_days(X), writeL(X).
@@ -176,12 +184,14 @@ friday
 X = [monday, tuesday, wednesday, thursday, friday].
 false
 ```
+
 ***Example 4.2.5***
 ```prolog
 week_days([monday, tuesday, wednesday, thursday, friday]).
 lengthL([], 0).
 lengthL([H|T], N) :- lengthL(T, N1), N is N1 + 1.
 ```
+
 *Run*
 ```
 ?- week_days(X), lengthL(X, Y).
@@ -195,12 +205,14 @@ false
 ```
 
 `length/2` is a pre-built predicate for calculating length of a list.
+
 ***Example 4.2.6***
 ```prolog
 maxL([X], X) :- !.
 maxL([X|T], X) :- maxL(T, M), X > M.
 maxL([X|T], M) :- maxL(T, M), X =< M.
 ```
+
 *Run*
 ```
 ?- maxL([2, 1, 5, 4, 7], X).
@@ -214,6 +226,7 @@ false
 ?- maxL([2,1,5,4,7],20).
 false
 ```
+
 ***Example 4.2.7***
 ```prolog
 del([], X, []).
@@ -221,6 +234,7 @@ del([X|T], X, Rest) :- del(T, X, Rest).
 del([Y|T], X, [Y|Rest]) :- X \= Y, del(T, X, Rest).
 ```
 `del(T, X, R)` deletes the element X from the list `T` and assigns the rest of the list to `R`.
+
 *Run*
 ```
 ?- del([b, a, c, a], a, R).
@@ -228,6 +242,22 @@ R = [b, c] ;
 false
 ```
 The pre-built predicate `delete/3` functions exactly the same.
+
+***Example 4.2.8***
+```prolog
+week_days([monday, tuesday, wednesday, thursday, friday]).
+appendL([], L2, L2).
+appendL([H|T], L2, [H|L3]) :- appendL(T, L2, L3).
+```
+`appendL(List1, List2, NewList)` appends `List2` to the end of `List1` and return the result to `NewList`.
+
+*Run*
+```
+?- week_days(X), appendL(X, [saturday, sunday], Week).
+X = [monday, tuesday, wednesday, thursday, friday],
+Week = [monday, tuesday, wednesday, thursday, friday, saturday, sunday] ;
+false
+```
 
 ## 4.3 Strings
 - A string is a sequence of symbols encolosed in a pair of single quotation marks.
