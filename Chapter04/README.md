@@ -280,7 +280,7 @@ Define predicate `reverseL/2`. In `reverseL(X, Y)`, `X` is a list and `Y` is the
   reverseL([H|T], R) :- reverseL(T, R1), append(R1, [H], R).
   ```
   
-</detials>
+</details>
 
 ## 4.3 Strings
 - A string is a sequence of symbols encolosed in a pair of single quotation marks.
