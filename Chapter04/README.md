@@ -189,7 +189,7 @@ false
 ```prolog
 week_days([monday, tuesday, wednesday, thursday, friday]).
 lengthL([], 0).
-lengthL([H|T], N) :- lengthL(T, N1), N is N1 + 1.
+lengthL([_|T], N) :- lengthL(T, N1), N is N1 + 1.
 ```
 
 *Run*
@@ -197,11 +197,9 @@ lengthL([H|T], N) :- lengthL(T, N1), N is N1 + 1.
 ?- week_days(X), lengthL(X, Y).
 X = [monday, tuesday, wednesday, thursday, friday],
 Y = 5 ;
-false
 
 ?- lengthL([[purple, blue], [white, grey]], X).
 X = 2 ;
-false
 ```
 
 `length/2` is a pre-built predicate for calculating length of a list.
