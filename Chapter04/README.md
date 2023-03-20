@@ -277,7 +277,20 @@ Define predicate `reverseL/2`. In `reverseL(X, Y)`, `X` is a list and `Y` is the
   reverseL([X], [X]) :- !.
   reverseL([H|T], R) :- reverseL(T, R1), append(R1, [H], R).
   ```
+</details>
+
+**Exercise 4.2.11**
+Define the predicate `conver/2`. `convert(X, Y)` converts `X` which is a string of lower-case chars to `Y` which is the string of capitalised chars. (Note that the ASCII codes for 'A' is 65; for 'a' is 97). For example `?- convert('abba', Y)` should return `Y = ABBA`.
+<details>
+  <summary>sample answer</summary>
   
+  ```prolog
+  /* convert.pl */
+  modify([], X, []).
+  modify([H|T], X, [NH|NT]) :- NH is H - X, modify(T, X, NT).
+  
+  convert(S, NS) :- name(S, L), modify(L, 32, NL), name(NS, NL).
+  ```
 </details>
 
 ## 4.3 Strings
