@@ -131,8 +131,8 @@ Y = [].
 ***Example 4.2.3***
 ```prolog
 /* memberL.pl */
-memberL(X, [X|T]).
-memberL(X, [Y|T]) :- memberL(X, T).
+memberL(X, [X|_]).
+memberL(X, [_|T]) :- memberL(X, T). % we don't need to consider the head.
 ```
 
 *Run*
@@ -297,6 +297,15 @@ In the machine, they are stored as
 ```
 - A built-in predicate `name/2` can be utilized to convert between a string and a list of ASCII codes.
 - The first parameter is a string wthile the second is a list.
+
+***Example 4.3.2***
+```prolog
+st1('hello').
+st2('there').
+
+maxL([X], X).
+maxL([X|T], X) :- maxL(T, M), X > M.
+maxL([X|T], M) :- maxL(T, M), X =< M.
 
 ## 4.4 Structures
 - PROLOG does not support global variables. The scope of a variable is within a clause.
