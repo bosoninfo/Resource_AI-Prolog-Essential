@@ -169,7 +169,7 @@ false
 ***Example 4.2.4***
 ```prolog
 week_days([monday, tuesday, wednesday, thursday, friday]).
-writeL([]).
+writeL([]). % termination case.
 writeL([H|T]) :- write(H), nl, writeL(T).
 ```
 
@@ -306,6 +306,29 @@ st2('there').
 maxL([X], X).
 maxL([X|T], X) :- maxL(T, M), X > M.
 maxL([X|T], M) :- maxL(T, M), X =< M.
+
+appendL([], L, L).
+appendL([X|L1], L2, [X|L3]) :- appendL(L1, L2, L3).
+```
+
+*Run*
+```
+?- st1(X), st2(Y), appendL(X, Y, Z), name(W, Z).
+X = [104, 101, 108, 108, 111],
+Y = [116, 104, 101, 114, 101],
+Z = [104, 101, 108, 108, 111, 116, 104, 101, 114, 101],
+W = hellothere.
+
+?- name(apple, X), name(pear, Y), appendL(X, Y, Z), name(W, Z).
+X = [97, 112, 112, 108, 101],
+Y = [112, 101, 97, 114],
+Z = [97, 112, 112, 108, 101, 112, 101, 97, 114],
+W = applepear.
+
+?- st1(X), maxL(X, Y).
+X = [104, 101, 108, 108, 111],
+Y = 111
+```
 
 ## 4.4 Structures
 - PROLOG does not support global variables. The scope of a variable is within a clause.
