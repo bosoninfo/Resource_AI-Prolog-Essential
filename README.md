@@ -1,8 +1,6 @@
-# Resource_AI-Prolog-Essential
+# Learning AI in PROLOG
 
-|![image](https://user-images.githubusercontent.com/19381768/226217715-226fa261-1825-451d-8b9b-d2631a17aecd.png)|
-|:--:|
-|SWI-Prolog|
+![image](https://user-images.githubusercontent.com/19381768/226332148-2e9276ec-0447-4bbc-ba3f-c7b7506ae0ca.png)
 
 Artificial intelligence (AI) has rapidly evolved in recent years, and logic and reasoning have been fundamental to the field since its inception. Prolog is a logic programming language that has been widely used in AI research and development due to its ability to implement logical and rule-based systems. This tutorial material will provide an overview of AI programming and reasoning, and focus on the use of Prolog for logic-based programming.
 
@@ -15,3 +13,7 @@ Following that, we will discuss natural language processing (NLP), which is a cr
 The final sections will cover planning in robotics, which is an essential part of AI applications. We'll discuss how planning is accomplished in robotics, and how Prolog can be used to develop planning systems. We will conclude with a discussion of the semantic web and its use in AI systems.
 
 Overall, this tutorial material will provide you with a strong foundation in AI programming and reasoning using Prolog, which can be applied to a wide range of real-world AI problems.
+
+|![image](https://user-images.githubusercontent.com/19381768/226217715-226fa261-1825-451d-8b9b-d2631a17aecd.png)|
+|:--:|
+|SWI-Prolog|
