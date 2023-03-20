@@ -1,4 +1,4 @@
-# Resource_AI-Prolog-Essential
+# Learning AI in PROLOG
 
 ![image](https://user-images.githubusercontent.com/19381768/226332148-2e9276ec-0447-4bbc-ba3f-c7b7506ae0ca.png)
 
