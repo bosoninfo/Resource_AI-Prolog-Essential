@@ -385,3 +385,6 @@ book(prolog, author(ivan, bratko), category(cs, area(ai, subject(ai_language))))
 *Run*
 
 ## Built-in Predicates
+```prolog
+%%
+```
