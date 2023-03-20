@@ -269,7 +269,7 @@ true
 **Exercise 4.2.10**
 Define predicate `reverseL/2`. In `reverseL(X, Y)`, `X` is a list and `Y` is the reverse of `X`.
 <details>
-  <summary>Sample answer</summary>
+  <summary>sample answer</summary>
   
   ```prolog
   /* reverse.pl */
