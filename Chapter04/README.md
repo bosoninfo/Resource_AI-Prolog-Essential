@@ -266,6 +266,21 @@ The pre-built predicate `forall/2` can be used to traverse a list, and perform a
 purple    blue    green   orange    red
 true
 ```
+**Exercise 4.2.10**
+Define predicate `reverseL/2`. In `reverseL(X, Y)`, `X` is a list and `Y` is the reverse of `X`.
+<details>
+  <summary>Sample answer</summary>
+  
+  ```prolog
+  /* reverse.pl */
+  appendL([], L2, L2).
+  appendL([H|T], L2, [H|L3]) :- appendL(T, L2, L3).
+  
+  reverseL([X], [X]) :- !.
+  reverseL([H|T], R) :- reverseL(T, R1), append(R1, [H], R).
+  ```
+  
+</detials>
 
 ## 4.3 Strings
 - A string is a sequence of symbols encolosed in a pair of single quotation marks.
