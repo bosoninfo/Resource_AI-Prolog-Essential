@@ -1,4 +1,4 @@
-# First Order Logic
+# 1 First Order Logic
 
 ## 1.1 Formal Language & Formal System
 
