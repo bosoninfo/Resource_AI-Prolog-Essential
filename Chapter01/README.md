@@ -23,7 +23,7 @@ Based on the rule,
 |--|--|
 |Examples:<br>First Order Language,Propositional Language|Examples:<br>English, Japanese, Greek|
 |alphabet|The set of words and punctuation (e.g. , . ")|
-|well formed formulas (wffs)|sentences|
+|well formed formulas (wffs) (formula)|sentences|
 |formation rules|grammar|
 
 Differences between a formal language and a human language
@@ -82,3 +82,9 @@ A literal is an atom or the negation of an atom. A positive literal is an atom a
 > If p is a predicate symbol and a, b, X are terms, then<br>
 p(a+b, X, X^a) is an atom.<br>
 p(a+b, X, X^a) is also called a positive literal and $\lnot$p(a+b, X, X^a) is a negative literal.
+
+### :star: Formation Rules of First Order Language
+In first order language, a well formed formula (wff) (formula) is one of the following:
+- an atom;
+- if A is a formula, then ($\forall$X)A and ($\exists$X)A are formulas;
+- if A and B are formulas, then ($lnot$A), (A$\lor$B), (A$\and$B), and (A$\leftarrow$B) are formulas.
