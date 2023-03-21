@@ -95,4 +95,9 @@ p(a, b, X),<br>
 $\lnot$ p(a, c, X),<br>
 p(a, b, X) $\lor$ $\lnot$ $\lnot$ p(a, c, X), <br>
 $\forall$ X((p(a, b, X) $\land$ $\lnot$ p(a, c, X)) $\leftarrow$ (p(a, b, X) $\lor$ $\lnot$ p(a, c, X)))<br>
-are formulas.
+are formulas.<br>
+
+> However,
+$\forall$ X(p(a, b, X) p(a, c, X)<br>
+p(a, b, X) $\lor$<br>
+are not formulas.
