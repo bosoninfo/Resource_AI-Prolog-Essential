@@ -61,3 +61,19 @@ The alphabet of first order language includes:
 5. connectives ($\lnot$ (negation), $\lor$ (disjunction), $\land$ (conjunction), $\leftarrow$ (implication))
 6. quantifiers ($\forall$ (universal quantifier), $\exists$ (existing quantifier))
 7. punctuation (())
+
+### :star: Term
+A term is one of the follows:
+- a constant
+- a variable
+- `f(X1, X2, ..., Xn)` where `f` is an n-ary function symbol and `X1, X2, ..., Xn` are terms.
+
+***Example 1.2.1***
+```
+If X, Y are variables and a, b are constants then X, b, 20, X^a, sin(Y+b) are terms.
+
+### :star: Atom
+If p is a predicate symbol and X1, X2, ..., Xn are terms, then p(X1, X2, ..., Xn) is an atom.
+
+### :star: Literal
+A literal is an atom or the negation of an atom. A positive literal is an atom and a negative literal is the negation of an atom.
