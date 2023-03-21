@@ -14,6 +14,6 @@ The final sections will cover planning in robotics, which is an essential part o
 
 Overall, this tutorial material will provide you with a strong foundation in AI programming and reasoning using Prolog, which can be applied to a wide range of real-world AI problems.
 
-|![image](https://user-images.githubusercontent.com/19381768/226217715-226fa261-1825-451d-8b9b-d2631a17aecd.png)|
+|![image](https://user-images.githubusercontent.com/19381768/226523078-671f279b-82e8-4661-b7ab-5afb3df61ba3.png)|
 |:--:|
-|SWI-Prolog|
+|SWI-Prolog Editor|
