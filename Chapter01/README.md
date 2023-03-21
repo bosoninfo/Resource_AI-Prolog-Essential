@@ -79,6 +79,6 @@ If p is a predicate symbol and X1, X2, ..., Xn are terms, then p(X1, X2, ..., Xn
 A literal is an atom or the negation of an atom. A positive literal is an atom and a negative literal is the negation of an atom.
 
 ***Example 1.2.2***
-If p is a predicate symbol and a, b, X are terms, then
-p(a+b, X, X^a) is an atom.
-p(a+b, X, X^a) is also called a positive literal and $\lnot$p(a+b, X, X^a) is a negative literal.
+- If p is a predicate symbol and a, b, X are terms, then
+- p(a+b, X, X^a) is an atom.
+- p(a+b, X, X^a) is also called a positive literal and $\lnot$p(a+b, X, X^a) is a negative literal.
