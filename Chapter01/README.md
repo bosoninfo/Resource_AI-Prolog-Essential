@@ -87,4 +87,12 @@ p(a+b, X, X^a) is also called a positive literal and $\lnot$p(a+b, X, X^a) is a 
 In first order language, a well formed formula (wff) (formula) is one of the following:
 - an atom;
 - if A is a formula, then ($\forall$X)A and ($\exists$X)A are formulas;
-- if A and B are formulas, then ( $lnot$ A), (A $\lor$ B), (A $\land$ B), and (A $\leftarrow$ B) are formulas.
+- if A and B are formulas, then ($\lnot$ A), (A $\lor$ B), (A $\land$ B), and (A $\leftarrow$ B) are formulas.
+
+***Example 1.2.3***
+> If p is a predicate symbol and a, b, c, X are terms, then<br>
+p(a, b, X),<br>
+$\lnot$ p(a, c, X),<br>
+p(a, b, X) $\lor$ $\lnot$ $\lnot$ p(a, c, X), <br>
+$\forall$ X((p(a, b, X) $\land$ $\lnot$ p(a, c, X)) $\leftarrow$ (p(a, b, X) $\lor$ $\lnot$ p(a, c, X)))<br>
+are formulas.
