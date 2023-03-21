@@ -87,4 +87,4 @@ p(a+b, X, X^a) is also called a positive literal and $\lnot$p(a+b, X, X^a) is a 
 In first order language, a well formed formula (wff) (formula) is one of the following:
 - an atom;
 - if A is a formula, then ($\forall$X)A and ($\exists$X)A are formulas;
-- if A and B are formulas, then ($lnot$A), (A$\lor$B), (A$\and$B), and (A$\leftarrow$B) are formulas.
+- if A and B are formulas, then ($lnot$ A), (A $\lor$ B), (A $\and$ B), and (A $\leftarrow$ B) are formulas.
