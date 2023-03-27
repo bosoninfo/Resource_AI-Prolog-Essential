@@ -47,20 +47,22 @@ if_test(X) :- (condition(X) -> then_comp(X); else_comp(X)).
 ```
 
 ***Example 4.1.3***
-```prolog
-% the example 4.1.1 can also be written as follows
+
+The example 4.1.1 can also be written as follows
+```prolog 
 if_test(X) :- (X > 0 -> write('positive'); write('non-positive')), nl.
 ```
 
 ***Example 4.1.4***
+
+The program to read a number and output the abstract of the number.
 ```prolog
 /* abstract.pl */
-% read a number and output its abstract
-
 abstract :- write('enter X '), read(X), positive(X).
 positive(X) :- X < 0, Y is 0 - X, write(Y).
 positive(X) :- X >= 0, write(X).
 ```
+
 Alternatively, you can write the program as
 ```prolog
 abstract :- write('enter X '), read(X), (X < 0 -> Y is 0 - X, write(Y); write(X)).
@@ -99,6 +101,7 @@ Write a program `voting.pl` that acts as a vote counting machine. It repeatedly 
 % an empty list (a list with no element)
 []
 ```
+
 - A list can be divide into two components: the head and the tail.
 - The first element of the list is the head; the rest is the tail. The head is a term, and the tail is a list.
 - The notation `[|]` is used to separate the head and the tail. If the list contains only one element, then the element makes the head, and the tail is an empty list.
@@ -224,6 +227,34 @@ false
 ?- maxL([2,1,5,4,7],20).
 false
 ```
+***Explanation for Example 4.2.6***
+1. Base case: `maxL([X], X) :- !.`
+
+   This clause handles the case when there is only one element in the list. The maximum element in a single-element list is the element itself. The "cut" operator `!` is used here to prevent backtracking, as no further search is needed once the base case is reached.
+
+2. Recursive case 1: `maxL([X|T], X) :- maxL(T, M), X > M.`
+
+   This clause is true when the first element in the list, `X`, is greater than the maximum element M of the tail `T`. In this case, the maximum element of the entire list is `X`.
+
+   The predicate first calls `maxL(T, M)` recursively to find the maximum element M in the tail of the list `T`. Then it checks whether `X > M`. If this condition is true, `X` is the maximum element of the entire list.
+
+3. Recursive case 2: `maxL([X|T], M) :- maxL(T, M), X =< M.`
+
+   This clause is true when the first element in the list, `X`, is less than or equal to the maximum element M of the tail `T`. In this case, the maximum element of the entire list is `M`.
+
+   Similar to the previous case, the predicate first calls `maxL(T, M)` recursively to find the maximum element `M` in the tail of the list `T`. Then it checks whether `X =< M`. If this condition is true, `M` is the maximum element of the entire list.
+
+The execution of `maxL([3,7,5,2], M)` will proceed as follows:
+
+- maxL([3|[7,5,2]], 3) :- maxL([7,5,2], M1), 3 > M1.
+  - maxL([7|[5,2]], 7) :- maxL([5,2], M2), 7 > M2.
+    - maxL([5|[2]], 5) :- maxL([2], M3), 5 > M3.
+      - maxL([2], 2). (Base case)
+    - maxL([5,2], 5) (Recursive case 1)
+  - maxL([7,5,2], 7) (Recursive case 1)
+- maxL([3,7,5,2], 7) (Recursive case 2)
+
+The result is `M = 7`, which is the maximum element in the list `[3, 7, 5, 2]`.
 
 ***Example 4.2.7***
 ```prolog
