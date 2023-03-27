@@ -513,4 +513,16 @@ X = names(may, smith) ;
 - The built-in predicate `call/1` will invoke a system evaluation.
 - `call(X)` will put `X` as a goal for the system to evaluate.
 
+- The built-in predicate `clause/2` can be used to search for the clauses satisfying certain conditions.
+- `clause(X, Y)` searches all the user-defined clauses existing in the PROLOG executor, matches `X` with the head and `Y` with the body. In the case the clause is a fact, it will assign "true" to `Y`.
+
+***Example 4.5.2***
+```prolog
+loop(Index, Index) :- body(Index).
+loop(Index, End) :- Index < End, body(Index), Nindex is Index + 1, loop(Nindex, End).
+
+body(Index) :- write('In the loop with index = '), write(Index), nl.
+```
+
+*Run*
 
