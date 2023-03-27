@@ -303,7 +303,7 @@ true
 ***:brain: Exercise 4.2.10***
 Define predicate `reverseL/2`. In `reverseL(X, Y)`, `X` is a list and `Y` is the reverse of `X`.
 <details>
-  <summary>sample answer</summary>
+  <summary>:bulb: sample answer</summary>
   
   ```prolog
   /* reverse.pl */
@@ -366,7 +366,7 @@ Y = 111
 ***:brain: Exercise 4.3.3***
 Define the predicate `conver/2`. `convert(X, Y)` converts `X` which is a string of lower-case chars to `Y` which is the string of capitalised chars. (Note that the ASCII codes for 'A' is 65; for 'a' is 97). For example `?- convert('abba', Y)` should return `Y = ABBA`.
 <details>
-  <summary>sample answer</summary>
+  <summary>:bulb: sample answer</summary>
   
   ```prolog
   /* convert.pl */
@@ -478,7 +478,7 @@ Y = student(names(may, smith), 20)
 Write a program that changes the structure `bookL([prolog, cs, ai, 112.95])` into `book(title(prolog), category(cs, area(ai)), price(112.95))`.
 
 <details>
-  <summary>sample answer</summary>
+  <summary>:bulb: sample answer</summary>
    
   ```prolog
   /* change.pl */
