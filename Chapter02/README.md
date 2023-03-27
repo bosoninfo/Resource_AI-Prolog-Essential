@@ -2,7 +2,7 @@
 
 |Table of Sections|
 |--|
-|:herb:  [2.1 Introduction of Prolog](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter02/README.md#21-)<br>:herb:  [2.2 Lists]()<br>:herb:  [2.3 Strings]()<br>:herb:  [2.4 Structures]()<br>:herb:  [2.5 Built-in Predicates]()|
+|:herb:  [2.1 Introduction of Prolog](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter02/README.md#21-)<br>:herb:  [2.2 Basics]()<br>:herb:  [2.3 ]()<br>:herb:  [2.4]()<br>:herb:  [2.5 ]()|
 
 <p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
 
