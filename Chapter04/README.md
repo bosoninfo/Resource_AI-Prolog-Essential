@@ -245,15 +245,15 @@ false
    Similar to the previous case, the predicate first calls `maxL(T, M)` recursively to find the maximum element `M` in the tail of the list `T`. Then it checks whether `X =< M`. If this condition is true, `M` is the maximum element of the entire list.
 
 The execution of `maxL([3,7,5,2], M)` will proceed as follows:
-
+```
 - maxL([3|[7,5,2]], 3) :- maxL([7,5,2], M1), 3 > M1.
-  - maxL([7|[5,2]], 7) :- maxL([5,2], M2), 7 > M2.
-    - maxL([5|[2]], 5) :- maxL([2], M3), 5 > M3.
-      - maxL([2], 2). (Base case)
-    - maxL([5,2], 5) (Recursive case 1)
-  - maxL([7,5,2], 7) (Recursive case 1)
+    - maxL([7|[5,2]], 7) :- maxL([5,2], M2), 7 > M2.
+        - maxL([5|[2]], 5) :- maxL([2], M3), 5 > M3.
+            - maxL([2], 2). (Base case)
+        - maxL([5,2], 5) (Recursive case 1)
+    - maxL([7,5,2], 7) (Recursive case 1)
 - maxL([3,7,5,2], 7) (Recursive case 2)
-
+```
 The result is `M = 7`, which is the maximum element in the list `[3, 7, 5, 2]`.
 
 ***Example 4.2.7***
