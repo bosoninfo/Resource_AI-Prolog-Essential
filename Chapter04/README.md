@@ -159,7 +159,7 @@ X = a ;
 false
 ```
 
-The pre-built predicate `member/2` functions exactly like memberL/2.
+- The pre-built predicate `member/2` functions exactly like memberL/2.
 
 ```
 ?- member(4, [3, 5, 4, 6]).
@@ -270,7 +270,7 @@ del([Y|T], X, [Y|Rest]) :- X \= Y, del(T, X, Rest).
 R = [b, c] ;
 false
 ```
-The pre-built predicate `delete/3` functions exactly the same.
+- The pre-built predicate `delete/3` functions exactly the same.
 
 ***Example 4.2.8***
 ```prolog
@@ -280,6 +280,10 @@ appendL([H|T], L2, [H|L3]) :- appendL(T, L2, L3).
 ```
 `appendL(List1, List2, NewList)` appends `List2` to the end of `List1` and return the result to `NewList`.
 
+|<img width="290" alt="image" src="https://user-images.githubusercontent.com/19381768/227815364-81f163c9-4123-4140-a1dc-76d2ef051ac2.png">|
+|:--:|
+| List append|
+
 *Run*
 ```
 ?- week_days(X), appendL(X, [saturday, sunday], Week).
@@ -287,7 +291,7 @@ X = [monday, tuesday, wednesday, thursday, friday],
 Week = [monday, tuesday, wednesday, thursday, friday, saturday, sunday] ;
 false
 ```
-The pre-built predicate `forall/2` can be used to traverse a list, and perform an action.
+- The pre-built predicate `forall/2` can be used to traverse a list, and perform an action.
 
 ***Example 4.2.9***
 ```
@@ -295,6 +299,7 @@ The pre-built predicate `forall/2` can be used to traverse a list, and perform a
 purple    blue    green   orange    red
 true
 ```
+
 **Exercise 4.2.10**
 Define predicate `reverseL/2`. In `reverseL(X, Y)`, `X` is a list and `Y` is the reverse of `X`.
 <details>
@@ -307,20 +312,6 @@ Define predicate `reverseL/2`. In `reverseL(X, Y)`, `X` is a list and `Y` is the
   
   reverseL([X], [X]) :- !.
   reverseL([H|T], R) :- reverseL(T, R1), append(R1, [H], R).
-  ```
-</details>
-
-**Exercise 4.2.11**
-Define the predicate `conver/2`. `convert(X, Y)` converts `X` which is a string of lower-case chars to `Y` which is the string of capitalised chars. (Note that the ASCII codes for 'A' is 65; for 'a' is 97). For example `?- convert('abba', Y)` should return `Y = ABBA`.
-<details>
-  <summary>sample answer</summary>
-  
-  ```prolog
-  /* convert.pl */
-  modify([], X, []).
-  modify([H|T], X, [NH|NT]) :- NH is H - X, modify(T, X, NT).
-  
-  convert(S, NS) :- name(S, L), modify(L, 32, NL), name(NS, NL).
   ```
 </details>
 
@@ -372,6 +363,20 @@ X = [104, 101, 108, 108, 111],
 Y = 111
 ```
 
+**Exercise 4.2.11**
+Define the predicate `conver/2`. `convert(X, Y)` converts `X` which is a string of lower-case chars to `Y` which is the string of capitalised chars. (Note that the ASCII codes for 'A' is 65; for 'a' is 97). For example `?- convert('abba', Y)` should return `Y = ABBA`.
+<details>
+  <summary>sample answer</summary>
+  
+  ```prolog
+  /* convert.pl */
+  modify([], X, []).
+  modify([H|T], X, [NH|NT]) :- NH is H - X, modify(T, X, NT).
+  
+  convert(S, NS) :- name(S, L), modify(L, 32, NL), name(NS, NL).
+  ```
+</details>
+
 ## 4.4 Structures
 - PROLOG does not support global variables. The scope of a variable is within a clause.
 - For example, in `positive(X) :- X > 0.` and `greaterThan(X, Y) :- greaterThan(X, Z), greaterThan(Z, Y).`, the `X` in the first clause and the `X` in the second clause are irrelevant.
@@ -415,7 +420,11 @@ book(prolog, author(ivan, bratko), category(cs, area(ai, subject(ai_language))))
 ```
 *Run*
 
+
+
 ## Built-in Predicates
 ```prolog
 %%
 ```
+
+
