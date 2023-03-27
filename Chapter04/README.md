@@ -410,6 +410,7 @@ X = 21061985,
 Y = may,
 Z = smith ;
 ```
+
 - We can also build multi-layered structures with user-defined predicates.
 - A multi-layered structure is a structure that contains others structures (the composition of atoms).
 
@@ -419,12 +420,97 @@ student(names(may, smith), 21061985, sbcs, 2021).
 book(prolog, author(ivan, bratko), category(cs, area(ai, subject(ai_language)))).
 ```
 *Run*
-
-
-
-## Built-in Predicates
-```prolog
-%%
 ```
+?- student(X, Y, Z, 2021).
+X = names(may, smith),
+Y = 21061985,
+Z = sbcs ;
+
+?- book(prolog, X, Y).
+X = author(ivan, bratko),
+Y = category(cs, area(ai, subject(ai_language))) ;
+```
+
+- `functor/3` is a built-in predicate that can be utilized to examine a structure.
+- If `X` is a structure, `functor(X, Y, Z)` binds the predicates symbol of `X` to `Y` and the number of arguments of `X` to `Z`.
+
+***Example 4.4.3***
+```prolog
+book(prolog, author(ivan, bratko), category(cs, area(ai, subject(ai_language)))).
+```
+*Run*
+```
+?- book(prolog, X, Y), functor(X, NX, NAX), functor(Y, NY, NAY).
+X = author(ivan, bratko),
+Y = category(cs, area(ai, subject(ai_language))),
+NX = author,
+NAX = 2,
+NY = category,
+NAY = 2 ;
+```
+
+- `arg/3` is a built-in predicate which can be used to get an argument from a structure.
+- Let `Y` be the structure, `arg(X,Y,Z)` takes the Xth argument of `Y` and instantiated it to `Z`.
+
+***Example 4.4.4***
+```
+?- arg(3, student(may, smith, 21061985, sbcs, 2021), Z).
+Z = 21061985 ;
+
+?- arg(5, student(may, X, 05061985, sbcs, Y), Z).
+Y = Z ;
+```
+
+- `functor/3` and `arg/3` can be used together to build structures.
+
+***Example 4.4.5***
+```
+?- functor(X, names, 2), arg(1, X, may), arg(2, X, smith).
+X = names(may, smith)
+
+?- functor(X, names, 2), arg(1, X, may), arg(2, X, smith), functor(Y, student, 2), arg(1, Y, X), arg(2, Y, 20).
+X = names(may, smith),
+Y = student(names(may, smith), 20)
+```
+
+**Exercise 4.4.6**
+
+Write a program that changes the structure `bookL([prolog, cs, ai, 112.95])` into `book(title(prolog), category(cs, area(ai)), price(112.95))`.
+
+<details>
+  <summary>sample answer</summary>
+   
+  ```prolog
+  /* change.pl */
+  
+  bookL([prolog, cs, ai, 112.95]).
+  
+  change(B) :- 
+    bookL([X1, X2, X3, X4]),
+    functor(A, area, 1), arg(1, A, X3),
+    functor(T, title, 1), arg(1, T, X1), 
+    functor(C, category, 2), arg(1, C, X2), arg(2, C, A),
+    functor(P, price, 1), arg(1, P, X4),
+    functor(B, book, 3), arg(1, B, T), arg(2, B, C), arg(3, B, P).
+  ```
+</details>
+
+## 4.5 Built-in Predicates
+
+- The built-in operator `=..` is used to convert between a list and a structure.
+- The left side of the operator is the structure and right side is the list.
+- `a(b1, b2, ..., bn) =.. [a, b1, b2, ..., bn]`
+
+***Example 4.5.1***
+```
+?- person(names(may, smith), 670903) =.. Y.
+Y = [person, names(may, smith), 670903] ;
+
+?- X =.. [names, may, smith].
+X = names(may, smith) ;
+```
+
+- The built-in predicate `call/1` will invoke a system evaluation.
+- `call(X)` will put `X` as a goal for the system to evaluate.
 
 
