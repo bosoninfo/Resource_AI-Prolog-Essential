@@ -1,5 +1,9 @@
 # 4 Reasoning/AI Programming Part 3
 
+|Table of Sections|
+|--|
+|:herb:  [4.1 Selection](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#41-selection)<br>:herb:  [4.2 Lists](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#42-lists)<br>:herb:  [4.3 Strings](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#43-strings)<br>:herb:  [4.4 Structures](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#44-structures)<br>:herb:  [4.5 Built-in Predicates](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#45-builtin-predicates)|
+
 ## 4.1 Selection
 
 Selection can be constructed by using two clauses. The basic pattern can be:
