@@ -4,6 +4,8 @@
 |--|
 |:herb:  [4.1 Selection](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#41-selection)<br>:herb:  [4.2 Lists](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#42-lists)<br>:herb:  [4.3 Strings](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#43-strings)<br>:herb:  [4.4 Structures](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#44-structures)<br>:herb:  [4.5 Built-in Predicates](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#45-builtin-predicates)|
 
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
 ## 4.1 Selection
 
 Selection can be constructed by using two clauses. The basic pattern can be:
