@@ -68,7 +68,7 @@ Alternatively, you can write the program as
 abstract :- write('enter X '), read(X), (X < 0 -> Y is 0 - X, write(Y); write(X)).
 ```
 
-**Excercise 4.1.5**
+***:brain: Excercise 4.1.5***
 
 Write a program `voting.pl` that acts as a vote counting machine. It repeatedly reads people’s vote (1 for “support” and -1 for “against”). The counting is terminated when 0 is entered. It, then, displays the numbers of support votes and against votes.
 <details>
@@ -300,7 +300,7 @@ purple    blue    green   orange    red
 true
 ```
 
-**Exercise 4.2.10**
+***:brain: Exercise 4.2.10***
 Define predicate `reverseL/2`. In `reverseL(X, Y)`, `X` is a list and `Y` is the reverse of `X`.
 <details>
   <summary>sample answer</summary>
@@ -363,7 +363,7 @@ X = [104, 101, 108, 108, 111],
 Y = 111
 ```
 
-**Exercise 4.2.11**
+***:brain: Exercise 4.3.3***
 Define the predicate `conver/2`. `convert(X, Y)` converts `X` which is a string of lower-case chars to `Y` which is the string of capitalised chars. (Note that the ASCII codes for 'A' is 65; for 'a' is 97). For example `?- convert('abba', Y)` should return `Y = ABBA`.
 <details>
   <summary>sample answer</summary>
@@ -473,7 +473,7 @@ X = names(may, smith),
 Y = student(names(may, smith), 20)
 ```
 
-**Exercise 4.4.6**
+***:brain: Exercise 4.4.6***
 
 Write a program that changes the structure `bookL([prolog, cs, ai, 112.95])` into `book(title(prolog), category(cs, area(ai)), price(112.95))`.
 
