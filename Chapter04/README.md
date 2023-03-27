@@ -1,5 +1,11 @@
 # 4 Reasoning/AI Programming Part 3
 
+|Table of Sections|
+|--|
+|:herb:  [4.1 Selection](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#41-selection)<br>:herb:  [4.2 Lists](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#42-lists)<br>:herb:  [4.3 Strings](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#43-strings)<br>:herb:  [4.4 Structures](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#44-structures)<br>:herb:  [4.5 Built-in Predicates](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter04/README.md#45-builtin-predicates)|
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
 ## 4.1 Selection
 
 Selection can be constructed by using two clauses. The basic pattern can be:
@@ -86,6 +92,8 @@ Write a program `voting.pl` that acts as a vote counting machine. It repeatedly 
   terminate(S, A) :- write(S), write(' support votes and '), write(A), write(' against votes.'), nl.
   ```
 </details>
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
 
 ## 4.2 Lists
 - A list is a sequence of elements. Each of the elements can be a `constant`, an `atom`, a `list`, or a `structure`.
@@ -315,6 +323,8 @@ Define predicate `reverseL/2`. In `reverseL(X, Y)`, `X` is a list and `Y` is the
   ```
 </details>
 
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
 ## 4.3 Strings
 - A string is a sequence of symbols encolosed in a pair of single quotation marks.
 - A string is stored as a list of ASCII codes in the computer memory. Consequently, list operations can be applied to a string.
@@ -376,6 +386,8 @@ Define the predicate `conver/2`. `convert(X, Y)` converts `X` which is a string 
   convert(S, NS) :- name(S, L), modify(L, 32, NL), name(NS, NL).
   ```
 </details>
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
 
 ## 4.4 Structures
 - PROLOG does not support global variables. The scope of a variable is within a clause.
@@ -494,6 +506,8 @@ Write a program that changes the structure `bookL([prolog, cs, ai, 112.95])` int
     functor(B, book, 3), arg(1, B, T), arg(2, B, C), arg(3, B, P).
   ```
 </details>
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
 
 ## 4.5 Built-in Predicates
 
