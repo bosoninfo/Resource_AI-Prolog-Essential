@@ -525,4 +525,56 @@ body(Index) :- write('In the loop with index = '), write(Index), nl.
 ```
 
 *Run*
+```
+?- clause(loop(X, Y), Z).
+X = Y, 
+Z = body(Y) ;
+Z = (X<Y, body(X), _G441 is X+1, loop(_G441, Y)) ;
+false
 
+?- clause(body(X), Y).
+Y = (write('In the loop with index = '), write(X), nl) ;
+false
+```
+
+- The built-in predicate `assert/1` add an atom or a clause into the database of the PROLOG executor. 
+- All data being asserted will disappear when the PROLOG executor is halt.
+
+***Example 4.5.3***
+```
+?- assert(rain(yesterday)).
+true.
+
+?- assert(rain(today)).
+true.
+
+?- rain(X).
+X = yesterday ;
+X = today.
+
+?- assert(rain(X)).
+true.
+
+?- rain(anyDay).
+true.
+```
+
+- The built-in predicate `retract/1` functions in the opposite way as `assert/1`.
+- `retract(X)` deletes the occurrence of `X` in the database of the PROLOG executor.
+
+***Example 4.5.4***
+```
+?- assert(rain(yesterday)), assert(rain(today)).
+true.
+
+?- rain(X).
+X = yesterday ;
+X = today.
+
+?- retract(rain(X)).
+X = yesterday ;
+X = today.
+
+?- rain(X).
+false.
+```
