@@ -8,7 +8,7 @@ if_test(X) :- condition(X), then_component(X), !.
 if_test(X) :- else_component(X).
 ```
 
-***Example 4.1.1***
+***:blue_book: Example 4.1.1***
 ```prolog
 if_test(X) :- condition(X), then_comp, !.
 if_test(_) :- else_comp. % actually, we don't need to check the value of X here!
@@ -27,7 +27,7 @@ positive
 true
 ```
 
-***Example 4.1.2***
+***:blue_book: Example 4.1.2***
 ```prolog
 /* printMenu.pl */
 
@@ -46,14 +46,14 @@ Selection can also be constructed by using the pre-defined predicate `->/0`. The
 if_test(X) :- (condition(X) -> then_comp(X); else_comp(X)).
 ```
 
-***Example 4.1.3***
+***:blue_book: Example 4.1.3***
 
 The example 4.1.1 can also be written as follows
 ```prolog 
 if_test(X) :- (X > 0 -> write('positive'); write('non-positive')), nl.
 ```
 
-***Example 4.1.4***
+***:blue_book: Example 4.1.4***
 
 The program to read a number and output the abstract of the number.
 ```prolog
@@ -93,7 +93,7 @@ Write a program `voting.pl` that acts as a vote counting machine. It repeatedly 
 - Elements are separated by using a comma `,`.
 - A list is included in a pair of square brackets.
 
-***Example 4.2.1***
+***:blue_book: Example 4.2.1***
 ```prolog
 % a list of 4 elements
 [32, may, [positive(a), positive(b)], [a, b]]
@@ -106,7 +106,7 @@ Write a program `voting.pl` that acts as a vote counting machine. It repeatedly 
 - The first element of the list is the head; the rest is the tail. The head is a term, and the tail is a list.
 - The notation `[|]` is used to separate the head and the tail. If the list contains only one element, then the element makes the head, and the tail is an empty list.
 
-***Example 4.2.2***
+***:blue_book: Example 4.2.2***
 ```prolog
 weekdays([monday, tuesday, wednesday, thursday, friday]).
 like([pear]).
@@ -131,7 +131,7 @@ X = pear.
 Y = [].
 ```
 
-***Example 4.2.3***
+***:blue_book: Example 4.2.3***
 ```prolog
 /* memberL.pl */
 memberL(X, [X|_]).
@@ -169,7 +169,7 @@ true
 false
 ```
 
-***Example 4.2.4***
+***:blue_book: Example 4.2.4***
 ```prolog
 week_days([monday, tuesday, wednesday, thursday, friday]).
 writeL([]). % termination case.
@@ -188,7 +188,7 @@ X = [monday, tuesday, wednesday, thursday, friday].
 false
 ```
 
-***Example 4.2.5***
+***:blue_book: Example 4.2.5***
 ```prolog
 week_days([monday, tuesday, wednesday, thursday, friday]).
 lengthL([], 0).
@@ -207,7 +207,7 @@ X = 2 ;
 
 `length/2` is a pre-built predicate for calculating length of a list.
 
-***Example 4.2.6***
+***:blue_book: Example 4.2.6***
 ```prolog
 maxL([X], X) :- !.
 maxL([X|T], X) :- maxL(T, M), X > M.
@@ -256,7 +256,7 @@ The execution of `maxL([3,7,5,2], M)` will proceed as follows:
 ```
 The result is `M = 7`, which is the maximum element in the list `[3, 7, 5, 2]`.
 
-***Example 4.2.7***
+***:blue_book: Example 4.2.7***
 ```prolog
 del([], X, []).
 del([X|T], X, Rest) :- del(T, X, Rest).
@@ -272,7 +272,7 @@ false
 ```
 - The pre-built predicate `delete/3` functions exactly the same.
 
-***Example 4.2.8***
+***:blue_book: Example 4.2.8***
 ```prolog
 week_days([monday, tuesday, wednesday, thursday, friday]).
 appendL([], L2, L2).
@@ -293,7 +293,7 @@ false
 ```
 - The pre-built predicate `forall/2` can be used to traverse a list, and perform an action.
 
-***Example 4.2.9***
+***:blue_book: Example 4.2.9***
 ```
 ?- forall(member(X, [purple, blue, green, orange, red]), (write(X), tab(4))).
 purple    blue    green   orange    red
@@ -319,7 +319,7 @@ Define predicate `reverseL/2`. In `reverseL(X, Y)`, `X` is a list and `Y` is the
 - A string is a sequence of symbols encolosed in a pair of single quotation marks.
 - A string is stored as a list of ASCII codes in the computer memory. Consequently, list operations can be applied to a string.
 
-***Example 4.3.1***
+***:blue_book: Example 4.3.1***
 ```prolog
 'hello', 'there'
 ```
@@ -331,7 +331,7 @@ In the machine, they are stored as
 - A built-in predicate `name/2` can be utilized to convert between a string and a list of ASCII codes.
 - The first parameter is a string wthile the second is a list.
 
-***Example 4.3.2***
+***:blue_book: Example 4.3.2***
 ```prolog
 st1('hello').
 st2('there').
@@ -382,7 +382,7 @@ Define the predicate `conver/2`. `convert(X, Y)` converts `X` which is a string 
 - For example, in `positive(X) :- X > 0.` and `greaterThan(X, Y) :- greaterThan(X, Z), greaterThan(Z, Y).`, the `X` in the first clause and the `X` in the second clause are irrelevant.
 - Data structures can be built with user-defined predicates to pass value from one clause to the other. A data structure is an atom or the composition of atoms.
 
-***Example 4.4.1***
+***:blue_book: Example 4.4.1***
 ```prolog
 student(may, smith, 21061985, sbcs, 2021).
 book(prolog, ivan, bratko, cs, ai, ai_language).
@@ -414,7 +414,7 @@ Z = smith ;
 - We can also build multi-layered structures with user-defined predicates.
 - A multi-layered structure is a structure that contains others structures (the composition of atoms).
 
-***Example 4.4.2***
+***:blue_book: Example 4.4.2***
 ```prolog
 student(names(may, smith), 21061985, sbcs, 2021).
 book(prolog, author(ivan, bratko), category(cs, area(ai, subject(ai_language)))).
@@ -434,7 +434,7 @@ Y = category(cs, area(ai, subject(ai_language))) ;
 - `functor/3` is a built-in predicate that can be utilized to examine a structure.
 - If `X` is a structure, `functor(X, Y, Z)` binds the predicates symbol of `X` to `Y` and the number of arguments of `X` to `Z`.
 
-***Example 4.4.3***
+***:blue_book: Example 4.4.3***
 ```prolog
 book(prolog, author(ivan, bratko), category(cs, area(ai, subject(ai_language)))).
 ```
@@ -452,7 +452,7 @@ NAY = 2 ;
 - `arg/3` is a built-in predicate which can be used to get an argument from a structure.
 - Let `Y` be the structure, `arg(X,Y,Z)` takes the Xth argument of `Y` and instantiated it to `Z`.
 
-***Example 4.4.4***
+***:blue_book: Example 4.4.4***
 ```
 ?- arg(3, student(may, smith, 21061985, sbcs, 2021), Z).
 Z = 21061985 ;
@@ -463,7 +463,7 @@ Y = Z ;
 
 - `functor/3` and `arg/3` can be used together to build structures.
 
-***Example 4.4.5***
+***:blue_book: Example 4.4.5***
 ```
 ?- functor(X, names, 2), arg(1, X, may), arg(2, X, smith).
 X = names(may, smith)
@@ -501,7 +501,7 @@ Write a program that changes the structure `bookL([prolog, cs, ai, 112.95])` int
 - The left side of the operator is the structure and right side is the list.
 - `a(b1, b2, ..., bn) =.. [a, b1, b2, ..., bn]`
 
-***Example 4.5.1***
+***:blue_book: Example 4.5.1***
 ```
 ?- person(names(may, smith), 670903) =.. Y.
 Y = [person, names(may, smith), 670903] ;
@@ -516,7 +516,7 @@ X = names(may, smith) ;
 - The built-in predicate `clause/2` can be used to search for the clauses satisfying certain conditions.
 - `clause(X, Y)` searches all the user-defined clauses existing in the PROLOG executor, matches `X` with the head and `Y` with the body. In the case the clause is a fact, it will assign "true" to `Y`.
 
-***Example 4.5.2***
+***:blue_book: Example 4.5.2***
 ```prolog
 loop(Index, Index) :- body(Index).
 loop(Index, End) :- Index < End, body(Index), Nindex is Index + 1, loop(Nindex, End).
@@ -540,7 +540,7 @@ false
 - The built-in predicate `assert/1` add an atom or a clause into the database of the PROLOG executor. 
 - All data being asserted will disappear when the PROLOG executor is halt.
 
-***Example 4.5.3***
+***:blue_book: Example 4.5.3***
 ```
 ?- assert(rain(yesterday)).
 true.
@@ -562,7 +562,7 @@ true.
 - The built-in predicate `retract/1` functions in the opposite way as `assert/1`.
 - `retract(X)` deletes the occurrence of `X` in the database of the PROLOG executor.
 
-***Example 4.5.4***
+***:blue_book: Example 4.5.4***
 ```
 ?- assert(rain(yesterday)), assert(rain(today)).
 true.
