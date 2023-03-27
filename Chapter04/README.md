@@ -47,20 +47,22 @@ if_test(X) :- (condition(X) -> then_comp(X); else_comp(X)).
 ```
 
 ***Example 4.1.3***
-```prolog
-% the example 4.1.1 can also be written as follows
+
+The example 4.1.1 can also be written as follows
+```prolog 
 if_test(X) :- (X > 0 -> write('positive'); write('non-positive')), nl.
 ```
 
 ***Example 4.1.4***
+
+The program to read a number and output the abstract of the number.
 ```prolog
 /* abstract.pl */
-% read a number and output its abstract
-
 abstract :- write('enter X '), read(X), positive(X).
 positive(X) :- X < 0, Y is 0 - X, write(Y).
 positive(X) :- X >= 0, write(X).
 ```
+
 Alternatively, you can write the program as
 ```prolog
 abstract :- write('enter X '), read(X), (X < 0 -> Y is 0 - X, write(Y); write(X)).
@@ -99,6 +101,7 @@ Write a program `voting.pl` that acts as a vote counting machine. It repeatedly 
 % an empty list (a list with no element)
 []
 ```
+
 - A list can be divide into two components: the head and the tail.
 - The first element of the list is the head; the rest is the tail. The head is a term, and the tail is a list.
 - The notation `[|]` is used to separate the head and the tail. If the list contains only one element, then the element makes the head, and the tail is an empty list.
@@ -156,7 +159,7 @@ X = a ;
 false
 ```
 
-The pre-built predicate `member/2` functions exactly like memberL/2.
+- The pre-built predicate `member/2` functions exactly like memberL/2.
 
 ```
 ?- member(4, [3, 5, 4, 6]).
@@ -224,6 +227,34 @@ false
 ?- maxL([2,1,5,4,7],20).
 false
 ```
+***Explanation for Example 4.2.6***
+1. Base case: `maxL([X], X) :- !.`
+
+   This clause handles the case when there is only one element in the list. The maximum element in a single-element list is the element itself. The "cut" operator `!` is used here to prevent backtracking, as no further search is needed once the base case is reached.
+
+2. Recursive case 1: `maxL([X|T], X) :- maxL(T, M), X > M.`
+
+   This clause is true when the first element in the list, `X`, is greater than the maximum element M of the tail `T`. In this case, the maximum element of the entire list is `X`.
+
+   The predicate first calls `maxL(T, M)` recursively to find the maximum element M in the tail of the list `T`. Then it checks whether `X > M`. If this condition is true, `X` is the maximum element of the entire list.
+
+3. Recursive case 2: `maxL([X|T], M) :- maxL(T, M), X =< M.`
+
+   This clause is true when the first element in the list, `X`, is less than or equal to the maximum element M of the tail `T`. In this case, the maximum element of the entire list is `M`.
+
+   Similar to the previous case, the predicate first calls `maxL(T, M)` recursively to find the maximum element `M` in the tail of the list `T`. Then it checks whether `X =< M`. If this condition is true, `M` is the maximum element of the entire list.
+
+The execution of `maxL([3,7,5,2], M)` will proceed as follows:
+```
+- maxL([3|[7,5,2]], 3) :- maxL([7,5,2], M1), 3 > M1.
+    - maxL([7|[5,2]], 7) :- maxL([5,2], M2), 7 > M2.
+        - maxL([5|[2]], 5) :- maxL([2], M3), 5 > M3.
+            - maxL([2], 2). (Base case)
+        - maxL([5,2], 5) (Recursive case 1)
+    - maxL([7,5,2], 7) (Recursive case 1)
+- maxL([3,7,5,2], 7) (Recursive case 2)
+```
+The result is `M = 7`, which is the maximum element in the list `[3, 7, 5, 2]`.
 
 ***Example 4.2.7***
 ```prolog
@@ -239,7 +270,7 @@ del([Y|T], X, [Y|Rest]) :- X \= Y, del(T, X, Rest).
 R = [b, c] ;
 false
 ```
-The pre-built predicate `delete/3` functions exactly the same.
+- The pre-built predicate `delete/3` functions exactly the same.
 
 ***Example 4.2.8***
 ```prolog
@@ -249,6 +280,10 @@ appendL([H|T], L2, [H|L3]) :- appendL(T, L2, L3).
 ```
 `appendL(List1, List2, NewList)` appends `List2` to the end of `List1` and return the result to `NewList`.
 
+|<img width="290" alt="image" src="https://user-images.githubusercontent.com/19381768/227815364-81f163c9-4123-4140-a1dc-76d2ef051ac2.png">|
+|:--:|
+| List append|
+
 *Run*
 ```
 ?- week_days(X), appendL(X, [saturday, sunday], Week).
@@ -256,7 +291,7 @@ X = [monday, tuesday, wednesday, thursday, friday],
 Week = [monday, tuesday, wednesday, thursday, friday, saturday, sunday] ;
 false
 ```
-The pre-built predicate `forall/2` can be used to traverse a list, and perform an action.
+- The pre-built predicate `forall/2` can be used to traverse a list, and perform an action.
 
 ***Example 4.2.9***
 ```
@@ -264,6 +299,7 @@ The pre-built predicate `forall/2` can be used to traverse a list, and perform a
 purple    blue    green   orange    red
 true
 ```
+
 **Exercise 4.2.10**
 Define predicate `reverseL/2`. In `reverseL(X, Y)`, `X` is a list and `Y` is the reverse of `X`.
 <details>
@@ -276,20 +312,6 @@ Define predicate `reverseL/2`. In `reverseL(X, Y)`, `X` is a list and `Y` is the
   
   reverseL([X], [X]) :- !.
   reverseL([H|T], R) :- reverseL(T, R1), append(R1, [H], R).
-  ```
-</details>
-
-**Exercise 4.2.11**
-Define the predicate `conver/2`. `convert(X, Y)` converts `X` which is a string of lower-case chars to `Y` which is the string of capitalised chars. (Note that the ASCII codes for 'A' is 65; for 'a' is 97). For example `?- convert('abba', Y)` should return `Y = ABBA`.
-<details>
-  <summary>sample answer</summary>
-  
-  ```prolog
-  /* convert.pl */
-  modify([], X, []).
-  modify([H|T], X, [NH|NT]) :- NH is H - X, modify(T, X, NT).
-  
-  convert(S, NS) :- name(S, L), modify(L, 32, NL), name(NS, NL).
   ```
 </details>
 
@@ -341,6 +363,20 @@ X = [104, 101, 108, 108, 111],
 Y = 111
 ```
 
+**Exercise 4.2.11**
+Define the predicate `conver/2`. `convert(X, Y)` converts `X` which is a string of lower-case chars to `Y` which is the string of capitalised chars. (Note that the ASCII codes for 'A' is 65; for 'a' is 97). For example `?- convert('abba', Y)` should return `Y = ABBA`.
+<details>
+  <summary>sample answer</summary>
+  
+  ```prolog
+  /* convert.pl */
+  modify([], X, []).
+  modify([H|T], X, [NH|NT]) :- NH is H - X, modify(T, X, NT).
+  
+  convert(S, NS) :- name(S, L), modify(L, 32, NL), name(NS, NL).
+  ```
+</details>
+
 ## 4.4 Structures
 - PROLOG does not support global variables. The scope of a variable is within a clause.
 - For example, in `positive(X) :- X > 0.` and `greaterThan(X, Y) :- greaterThan(X, Z), greaterThan(Z, Y).`, the `X` in the first clause and the `X` in the second clause are irrelevant.
@@ -374,6 +410,7 @@ X = 21061985,
 Y = may,
 Z = smith ;
 ```
+
 - We can also build multi-layered structures with user-defined predicates.
 - A multi-layered structure is a structure that contains others structures (the composition of atoms).
 
@@ -383,8 +420,97 @@ student(names(may, smith), 21061985, sbcs, 2021).
 book(prolog, author(ivan, bratko), category(cs, area(ai, subject(ai_language)))).
 ```
 *Run*
-
-## Built-in Predicates
-```prolog
-%%
 ```
+?- student(X, Y, Z, 2021).
+X = names(may, smith),
+Y = 21061985,
+Z = sbcs ;
+
+?- book(prolog, X, Y).
+X = author(ivan, bratko),
+Y = category(cs, area(ai, subject(ai_language))) ;
+```
+
+- `functor/3` is a built-in predicate that can be utilized to examine a structure.
+- If `X` is a structure, `functor(X, Y, Z)` binds the predicates symbol of `X` to `Y` and the number of arguments of `X` to `Z`.
+
+***Example 4.4.3***
+```prolog
+book(prolog, author(ivan, bratko), category(cs, area(ai, subject(ai_language)))).
+```
+*Run*
+```
+?- book(prolog, X, Y), functor(X, NX, NAX), functor(Y, NY, NAY).
+X = author(ivan, bratko),
+Y = category(cs, area(ai, subject(ai_language))),
+NX = author,
+NAX = 2,
+NY = category,
+NAY = 2 ;
+```
+
+- `arg/3` is a built-in predicate which can be used to get an argument from a structure.
+- Let `Y` be the structure, `arg(X,Y,Z)` takes the Xth argument of `Y` and instantiated it to `Z`.
+
+***Example 4.4.4***
+```
+?- arg(3, student(may, smith, 21061985, sbcs, 2021), Z).
+Z = 21061985 ;
+
+?- arg(5, student(may, X, 05061985, sbcs, Y), Z).
+Y = Z ;
+```
+
+- `functor/3` and `arg/3` can be used together to build structures.
+
+***Example 4.4.5***
+```
+?- functor(X, names, 2), arg(1, X, may), arg(2, X, smith).
+X = names(may, smith)
+
+?- functor(X, names, 2), arg(1, X, may), arg(2, X, smith), functor(Y, student, 2), arg(1, Y, X), arg(2, Y, 20).
+X = names(may, smith),
+Y = student(names(may, smith), 20)
+```
+
+**Exercise 4.4.6**
+
+Write a program that changes the structure `bookL([prolog, cs, ai, 112.95])` into `book(title(prolog), category(cs, area(ai)), price(112.95))`.
+
+<details>
+  <summary>sample answer</summary>
+   
+  ```prolog
+  /* change.pl */
+  
+  bookL([prolog, cs, ai, 112.95]).
+  
+  change(B) :- 
+    bookL([X1, X2, X3, X4]),
+    functor(A, area, 1), arg(1, A, X3),
+    functor(T, title, 1), arg(1, T, X1), 
+    functor(C, category, 2), arg(1, C, X2), arg(2, C, A),
+    functor(P, price, 1), arg(1, P, X4),
+    functor(B, book, 3), arg(1, B, T), arg(2, B, C), arg(3, B, P).
+  ```
+</details>
+
+## 4.5 Built-in Predicates
+
+- The built-in operator `=..` is used to convert between a list and a structure.
+- The left side of the operator is the structure and right side is the list.
+- `a(b1, b2, ..., bn) =.. [a, b1, b2, ..., bn]`
+
+***Example 4.5.1***
+```
+?- person(names(may, smith), 670903) =.. Y.
+Y = [person, names(may, smith), 670903] ;
+
+?- X =.. [names, may, smith].
+X = names(may, smith) ;
+```
+
+- The built-in predicate `call/1` will invoke a system evaluation.
+- `call(X)` will put `X` as a goal for the system to evaluate.
+
+
