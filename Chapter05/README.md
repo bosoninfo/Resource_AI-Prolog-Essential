@@ -36,3 +36,39 @@ convert([X|L], [X|L2]) :- convert(L, L2).
  - The first rule sets the termination condition
  - The second rule does the work of converting.
  - The third rule recurses through the list without changing any words.
+ - The program becomes.
+ 
+```prolog
+substitution([adversely, impact], [hurt]).
+substitution([negatively, impact], [hurt]).
+substitution([impact], [affect]).
+substitution([transition], [change]).
+substitution([consider, options], [learn]).
+substitution([evaluate, options], [study]).
+substitution([under, advisement], [being, studied]).
+substitution([under, consideration], [being, studied]).
+substitution([expedite], [do]).
+substitution([expeditiously], [fast]).
+substitution([prioritize], [rank]).
+
+convert([], []).
+convert(L, NL) :- 
+    substituion(S, NS), 
+    append(S, L2, L), 
+    append(NS, L2, L3), 
+    convert(L3, NL), 
+    !.
+convert([X|L], [X|L2]) :- convert(L, L2).
+
+append([], L, L).
+append([X|L1], L2, [X|L3]) :- append(L1, L2, L3). 
+```
+
+- Once loaded into the PROLOG executor, it can answer queries such as
+
+```
+?- convert([we, must, consider, options, to, transition, expeditiously], L).
+L = [we, must, learn, to, change, fast]
+```
+## Case 2
+Farmer, Wolf, Goat, and Cabbage Problem
