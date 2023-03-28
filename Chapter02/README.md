@@ -82,7 +82,7 @@ In Prolog, the basic building blocks of a program are constants, variables, term
 **Constants**: 
 - A constant is a fixed value that does not change during the execution of a program. 
 - In Prolog, constants can be represented by integers, floating-point numbers, a sequence of symbols, a string, a list or a structure.
-- A constant may/ may not have an identifier. The identifier of a constant may contain letters, digits. underscores and should <u>start with a lower-case letter</u>.
+- A constant may/ may not have an identifier. The identifier of a constant may contain letters, digits. underscores and should <int>start with a lower-case letter</int>.
 - a12_3, xY, 50, 3.1415926, samantha, jack are <u>constants</u>.
 - _a, Mary, _50 are <u>not constants</u>.
 
