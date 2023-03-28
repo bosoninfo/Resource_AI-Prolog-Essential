@@ -6,7 +6,7 @@ Write a program to translate formal English into daily English. (materials are e
 
 For example, changing `we must consider options to transition expeditiously` to `we must study to change fast`.
 
-Firstly represent the phrases to be substituted and their simpler translations as a set of two argument facts:
+- Firstly represent the phrases to be substituted and their simpler translations as a set of two argument facts:
 ```prolog
 substitution([adversely, impact], [hurt]).
 substitution([negatively, impact], [hurt]).
@@ -21,7 +21,7 @@ substitution([expeditiously], [fast]).
 substitution([prioritize], [rank]).
 ```
 
-Next, define a predicate that recurses a sentence (a list).
+- Next, define a predicate that recurses a sentence (a list).
 ```prolog
 convert([], []).
 convert(L, NL) :- 
@@ -32,3 +32,7 @@ convert(L, NL) :-
     !.
 convert([X|L], [X|L2]) :- convert(L, L2).
 ```
+
+ - The first rule sets the termination condition
+ - The second rule does the work of converting.
+ - The third rule recurses through the list without changing any words.
