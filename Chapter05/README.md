@@ -70,3 +70,5 @@ append([X|L1], L2, [X|L3]) :- append(L1, L2, L3).
 ?- convert([we, must, consider, options, to, transition, expeditiously], L).
 L = [we, must, learn, to, change, fast]
 ```
+## Case 2
+Farmer, Wolf, Goat, and Cabbage Problem
