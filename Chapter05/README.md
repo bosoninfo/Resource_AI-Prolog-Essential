@@ -13,4 +13,6 @@ substitution([negatively, impact], [hurt]).
 substitution([impact], [affect]).
 substitution([transition], [change]).
 substitution([consider, options], [learn]).
+substitution([evaluate, options], [study]).
+substitution([under, advisement], [being, studied]).
 ```
