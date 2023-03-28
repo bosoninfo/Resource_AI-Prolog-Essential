@@ -22,3 +22,12 @@ substitution([prioritize], [rank]).
 ```
 
 Next, define a predicate that recurses a sentence (a list).
+```prolog
+convert([], []).
+convert(L, NL) :-
+  substituion(S, NS),
+  append(S, L2, L),
+  append(NS, L2, L3),
+  convert(L3, NL), !.
+convert([X|L], [X|L2]) :- convert(L, L2).
+```
