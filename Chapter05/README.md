@@ -1,5 +1,7 @@
 # 5 PROLOG Case Study
 
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
 ## Case 1
 
 Write a program to translate formal English into daily English. (materials are extracted from Bratko I., PROLOG: Programming for Artificial Intelligence [2nd ed], Addison-Wesley, 1990.)
@@ -70,5 +72,8 @@ append([X|L1], L2, [X|L3]) :- append(L1, L2, L3).
 ?- convert([we, must, consider, options, to, transition, expeditiously], L).
 L = [we, must, learn, to, change, fast]
 ```
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
 ## Case 2
 Farmer, Wolf, Goat, and Cabbage Problem
