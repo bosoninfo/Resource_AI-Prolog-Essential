@@ -17,4 +17,6 @@ substitution([evaluate, options], [study]).
 substitution([under, advisement], [being, studied]).
 substitution([under, consideration], [being, studied]).
 substitution([expedite], [do]).
+substitution([expeditiously], [fast]).
+substitution([prioritize], [rank]).
 ```
