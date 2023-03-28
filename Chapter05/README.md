@@ -63,3 +63,7 @@ convert([X|L], [X|L2]) :- convert(L, L2).
 append([], L, L).
 append([X|L1], L2, [X|L3]) :- append(L1, L2, L3). 
 ```
+
+- Once loaded into the PROLOG executor, it can answer queries such as
+
+
