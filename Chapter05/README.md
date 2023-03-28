@@ -66,4 +66,7 @@ append([X|L1], L2, [X|L3]) :- append(L1, L2, L3).
 
 - Once loaded into the PROLOG executor, it can answer queries such as
 
-
+```
+?- convert([we, must, consider, options, to, transition, expeditiously], L).
+L = [we, must, learn, to, change, fast]
+```
