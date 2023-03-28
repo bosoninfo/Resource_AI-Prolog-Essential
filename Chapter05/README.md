@@ -50,4 +50,13 @@ substitution([under, consideration], [being, studied]).
 substitution([expedite], [do]).
 substitution([expeditiously], [fast]).
 substitution([prioritize], [rank]).
+
+convert([], []).
+convert(L, NL) :- 
+    substituion(S, NS), 
+    append(S, L2, L), 
+    append(NS, L2, L3), 
+    convert(L3, NL), 
+    !.
+convert([X|L], [X|L2]) :- convert(L, L2).
 ```
