@@ -1,5 +1,11 @@
 # 1 First Order Logic
 
+|Table of Sections|
+|--|
+|:herb:  [1.1 Formal Language & Formal System](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter01/README.md#11-formal-language--formal-system)<br>:herb:  [1.2 First Order Logic](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter01/README.md#12-first-order-logic)<br>:herb:  [1.3 Semantics of First Order Logic](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter01/README.md#13-semantics-of-first-order-logic)<br>:herb:  [1.4 Syntax of First Order Logic](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter01/README.md#14-syntax-of-first-order-logic)|
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
 ## 1.1 Formal Language & Formal System
 
 ### :star: `Definition` Formal Language
@@ -48,6 +54,8 @@ A formal language can be studied from two persepectives: semantics and syntax.
 The semantics (model theory) of a formal language is the study of the interpretations, truth functions, and models of the language.
 
 The syntax of a formal language (proof theory) is the study of its deductive apparatus.
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
 
 ## 1.2 First Order Logic
 First order language is a formal language. First order logic is a formal system.
@@ -101,3 +109,11 @@ are formulas.<br>
 $\forall$ X(p(a, b, X) p(a, c, X)<br>
 p(a, b, X) $\lor$<br>
 are not formulas.
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
+## 1.3 Semantics of First Order Logic
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
+## 1.4 Syntax of First Order Logic
