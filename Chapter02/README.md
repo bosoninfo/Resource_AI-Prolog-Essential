@@ -83,26 +83,26 @@ In Prolog, the basic building blocks of a program are constants, variables, term
 - A constant is a fixed value that does not change during the execution of a program. 
 - In Prolog, constants can be represented by integers, floating-point numbers, a sequence of symbols, a string, a list or a structure.
 - A constant may/ may not have an identifier. The identifier of a constant may contain letters, digits. underscores and should <ins>start with a lower-case letter</ins>.
-- a12_3, xY, 50, 3.1415926, samantha, jack are <u>constants</u>.
-- _a, Mary, _50 are <u>not constants</u>.
+- a12_3, xY, 50, 3.1415926, samantha, jack are <ins>constants</ins>.
+- _a, Mary, _50 are <ins>not constants</ins>.
 
 **Variables**: 
 - A variable is a placeholder that can be assigned a value during the execution of a program. 
 - In Prolog, variables are represented by strings that begin with an uppercase letter or an underscore.
 - A variable always has an identifier.
-- _X, Mary, Z100 are <u>valid variable identifiers/names</u>.
-- x, 10XY, ??? are <u>invalid variable names</u>.
+- _X, Mary, Z100 are <ins>valid variable identifiers/names</ins>.
+- x, 10XY, ??? are <ins>invalid variable names</ins>.
 
 **Terms**: 
-- A term is a basic unit of Prolog that can be composed of <u>constants, variables, or other terms</u>. 
+- A term is a basic unit of Prolog that can be composed of <ins>constants, variables, or other terms</ins>. 
 - Terms can be used to represent logical expressions and are often used as arguments in predicates.
 
 **Predicates**: 
 - A predicate is a logical statement that takes one or more arguments and returns a Boolean value (true or false) depending on whether the statement is true or false. 
 - Predicates are defined using a name and a set of arguments, and they can be used to represent rules or relationships between objects.
-- In Prolog, the identifier of a predicate may contain <u>letters, digits, underscores and should start with a lower-case letter</u?.
-- greater_than, positive, parent are <u>valid predicate names</u>. Can also be written as greater_than/2, positive/1 and parent/2 to indicate the number of paramenters or arguments each predicate takes.
-- _greater_than, ?positive, Parent are <u>invalid predicate names</u>.
+- In Prolog, the identifier of a predicate may contain <ins>letters, digits, underscores and should start with a lower-case letter</ins>.
+- greater_than, positive, parent are <ins>valid predicate names</ins>. Can also be written as greater_than/2, positive/1 and parent/2 to indicate the number of paramenters or arguments each predicate takes.
+- _greater_than, ?positive, Parent are <ins>invalid predicate names</ins>.
 
 **Atoms**: 
 - An atom is a symbolic name that represents a constant or a predicate. Atoms are used to represent identifiers, keywords, and other symbolic names in Prolog programs.
@@ -114,8 +114,8 @@ In Prolog, constants, variables, terms, predicates, and atoms are all used to bu
 ## 2.2 Logical Connectives
 In Prolog, logical connectives are represented as follows:
 
-|      Logic        |Prolog |
-| :---|    :---:    |  ---: |
+|      Logic    |    |Prolog |
+|:---:  | --- |  ---: |
 |  ∧  | conjunction |   ,   |
 |  ∨  | disjunction |   ;   |
 |  ←  | implication |   :-  |
