@@ -114,8 +114,8 @@ In Prolog, constants, variables, terms, predicates, and atoms are all used to bu
 ## 2.2 Logical Connectives
 In Prolog, logical connectives are represented as follows:
 
-|      Logic    |    |Prolog |
-|:---:  | --- |  ---: |
+| Logic|Description |Prolog |
+|:---:  | --- |  :---: |
 |  ∧  | conjunction |   ,   |
 |  ∨  | disjunction |   ;   |
 |  ←  | implication |   :-  |
