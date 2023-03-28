@@ -101,3 +101,7 @@ are formulas.<br>
 $\forall$ X(p(a, b, X) p(a, c, X)<br>
 p(a, b, X) $\lor$<br>
 are not formulas.
+
+## 1.3 Semantics of First Order Logic
+
+## 1.4 Syntax of First Order Logic
