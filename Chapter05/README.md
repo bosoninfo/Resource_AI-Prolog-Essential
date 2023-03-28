@@ -9,4 +9,8 @@ For example, changing `we must consider options to transition expeditiously` to 
 Firstly represent the phrases to be substituted and their simpler translations as a set of two argument facts:
 ```prolog
 substitution([adversely, impact], [hurt]).
+substitution([negatively, impact], [hurt]).
+substitution([impact], [affect]).
+substitution([transition], [change]).
+substitution([consider, options], [learn]).
 ```
