@@ -20,3 +20,5 @@ substitution([expedite], [do]).
 substitution([expeditiously], [fast]).
 substitution([prioritize], [rank]).
 ```
+
+Next, define a predicate that recurses a sentence (a list).
