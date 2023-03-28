@@ -36,3 +36,7 @@ convert([X|L], [X|L2]) :- convert(L, L2).
  - The first rule sets the termination condition
  - The second rule does the work of converting.
  - The third rule recurses through the list without changing any words.
+ - The program becomes.
+ 
+ ```prolog
+ ```
