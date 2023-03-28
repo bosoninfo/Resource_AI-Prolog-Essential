@@ -15,4 +15,5 @@ substitution([transition], [change]).
 substitution([consider, options], [learn]).
 substitution([evaluate, options], [study]).
 substitution([under, advisement], [being, studied]).
+substitution([under, consideration], [being, studied]).
 ```
