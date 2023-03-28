@@ -38,5 +38,16 @@ convert([X|L], [X|L2]) :- convert(L, L2).
  - The third rule recurses through the list without changing any words.
  - The program becomes.
  
- ```prolog
- ```
+```prolog
+substitution([adversely, impact], [hurt]).
+substitution([negatively, impact], [hurt]).
+substitution([impact], [affect]).
+substitution([transition], [change]).
+substitution([consider, options], [learn]).
+substitution([evaluate, options], [study]).
+substitution([under, advisement], [being, studied]).
+substitution([under, consideration], [being, studied]).
+substitution([expedite], [do]).
+substitution([expeditiously], [fast]).
+substitution([prioritize], [rank]).
+```
