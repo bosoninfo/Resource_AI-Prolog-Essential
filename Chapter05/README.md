@@ -114,4 +114,24 @@ move(state(X, W, X, C), state(Y, W, Y, C)) :-
     not(unsafe(state(Y, W, Y, C))).
 ```
 ```prolog
+/* farmer takes cabbage to other side */
+move(state(X, W, G, X), state(Y, W, G, Y)) :-
+    opposite(X, Y), 
+    not(unsafe(state(Y, W, G, Y))).
 
+/* farmer takes himself to other side */
+move(state(X, W, G, C), state(Y, W, G, C)) :-
+    opposite(X, Y),
+    not(unsafe(state(Y,W,G,C))).
+```
+```prolog
+/* move to a next state */
+path(Goal, Goal, List) :-
+    write('Solution path is: '), nl,
+    reverse_list(List).
+
+path(State, Goal, List) :-
+    move(State, NextState),
+    not(member(NextState, List)),
+    path(NextState, Goal, [NextState|List]), !.
+```
