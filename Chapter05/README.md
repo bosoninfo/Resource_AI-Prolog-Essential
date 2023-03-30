@@ -85,3 +85,19 @@ for Complex Problem Solving (6th ed), Addison-Wesley, 2008`.
 - Similarly, if the goat is left with the cabbage at the absence of the farmer, the goat will eat the cabbage.
 - Derive a sequence of crossings of the river so that the four characters arrive safely on the western side of the river.
 
+```prolog
+/* predicates for working with list */
+reverse_list([]).
+reverse_list([H|T]) :- reverse_list(T), write(H), nl.
+
+member(X, [X|_]).
+member(X, [_|T]) :- member(X, T).
+
+/* opposite positions */
+opposite(e, w).
+opposite(w, e).
+
+/* unsafe states */
+unsafe(state(X, Y, Y, _)) :- opposite(X, Y). % wolf eats goat
+unsafe(state(X, _, Y, Y)) :- opposite(X, Y). % wolf eats goat
+```
