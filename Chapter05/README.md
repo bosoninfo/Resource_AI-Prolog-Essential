@@ -92,7 +92,8 @@ reverse_list([H|T]) :- reverse_list(T), write(H), nl.
 
 member(X, [X|_]).
 member(X, [_|T]) :- member(X, T).
-
+```
+```prolog
 /* opposite positions */
 opposite(e, w).
 opposite(w, e).
@@ -101,3 +102,4 @@ opposite(w, e).
 unsafe(state(X, Y, Y, _)) :- opposite(X, Y). % wolf eats goat
 unsafe(state(X, _, Y, Y)) :- opposite(X, Y). % wolf eats goat
 ```
+```prolog
