@@ -135,3 +135,19 @@ path(State, Goal, List) :-
     not(member(NextState, List)),
     path(NextState, Goal, [NextState|List]), !.
 ```
+
+*Run*
+```
+?- path(state(e, e, e, e), state(w, w, w, w), [state(e, e, e, e)].
+
+Solution Path is:
+state(e,e,e,e)
+state(w,e,w,e)
+state(e,e,w,e)
+state(w,w,w,e)
+state(e,w,e,e)
+state(w,w,e,w)
+state(e,w,e,w)
+state(w,w,w,w)
+true
+```
