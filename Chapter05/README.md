@@ -1,5 +1,9 @@
 # 5 PROLOG Case Study
 
+|Table of Sections|
+|--|
+|:herb:  [5.1 Case 1](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter05/README.md#51-case-1)<br>:herb:  [5.2 Case 2](https://github.com/bosoninfo/Resource_AI-Prolog-Essential/blob/main/Chapter05/README.md#52-case-2)|
+
 <p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
 
 ## 5.1 Case 1
