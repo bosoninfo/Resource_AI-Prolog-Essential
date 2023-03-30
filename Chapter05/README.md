@@ -4,7 +4,7 @@
 
 ## Case 1
 
-Write a program to translate formal English into daily English. (materials are extracted from Bratko I., PROLOG: Programming for Artificial Intelligence [2nd ed], Addison-Wesley, 1990.)
+Write a program to translate formal English into daily English. Materials are extracted from `Bratko I., PROLOG: Programming for Artificial Intelligence [2nd ed], Addison-Wesley, 1990`.
 
 For example, changing `we must consider options to transition expeditiously` to `we must study to change fast`.
 
@@ -76,4 +76,7 @@ L = [we, must, learn, to, change, fast]
 <p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
 
 ## Case 2
-Farmer, Wolf, Goat, and Cabbage Problem
+Farmer, Wolf, Goat, and Cabbage Problem. Materials are extracted from `Luger G.F., Artificial Intelligence: Structures and Strategies
+for Complex Problem Solving (6th ed), Addison-Wesley, 2008`.
+
+
