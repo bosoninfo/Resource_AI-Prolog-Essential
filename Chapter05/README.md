@@ -79,4 +79,9 @@ L = [we, must, learn, to, change, fast]
 Farmer, Wolf, Goat, and Cabbage Problem. Materials are extracted from `Luger G.F., Artificial Intelligence: Structures and Strategies
 for Complex Problem Solving (6th ed), Addison-Wesley, 2008`.
 
+- A farmer with his wolf, goat and cabbage are at the eastern side of a river and they wish to cross the river.
+- They have only one boat and the boat can carry only two items (including the rower) at a time. Only the farmer can row the boat.
+- Whenever the farmer is absent, the wolf will eat the goat unless the two animals are in the different sides of the river.
+- Similarly, if the goat is left with the cabbage at the absence of the farmer, the goat will eat the cabbage.
+- Derive a sequence of crossings of the river so that the four characters arrive safely on the western side of the river.
 
