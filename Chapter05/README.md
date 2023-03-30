@@ -103,3 +103,15 @@ unsafe(state(X, Y, Y, _)) :- opposite(X, Y). % wolf eats goat
 unsafe(state(X, _, Y, Y)) :- opposite(X, Y). % wolf eats goat
 ```
 ```prolog
+/* farmer takes wolf to other side */
+move(state(X, X, G, C), state(Y, Y, G, C)) :-
+    opposite(X, Y),
+    not(unsafe(state(Y, Y, G, C))).
+
+/* farmer takes goat to other side */
+move(state(X, W, X, C), state(Y, W, Y, C)) :-
+    opposite(X, Y),
+    not(unsafe(state(Y, W, Y, C))).
+```
+```prolog
+
