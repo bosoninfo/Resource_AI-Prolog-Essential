@@ -87,9 +87,9 @@ convert([we, must, consider, options], NL) :-
 				convert(L3, NL3), !.
 					L2 = [].
 					L3 = [learn].
-					convert([learn], NL3)
-					convert([learn| ], [learn|NL4]) :-
-						convert([], NL4).
+					convert([learn], NL3) :-
+						convert([learn| ], [learn|NL4]) :-
+							convert([], NL4).
 						NL4 = []
 					NL3 = [learn]
 			convert([consider, options], [learn])
