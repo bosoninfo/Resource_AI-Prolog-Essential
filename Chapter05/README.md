@@ -77,8 +77,9 @@ L = [we, must, learn, to, change, fast]
 *Reasoning for [we, must, consider, options]*
 ```prolog
 convert([we, must, consider, options], NL) :- 
+	convert([we, must, consider, options], NL = [we, NL2])
 	convert([we| must, consider, options], [we| NL2]) :- 
-		convert([must| consider, options], [must| NL3]) :-
+		convert([must| consider, options], NL2 = [must| NL3]) :-
 			convert([consider, options], NL3) :-
 				substitution([consider, options], [learn]),
 				append([consider, options], L2, [consider, options]),
