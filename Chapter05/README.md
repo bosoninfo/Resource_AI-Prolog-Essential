@@ -74,6 +74,29 @@ append([X|L1], L2, [X|L3]) :- append(L1, L2, L3).
 ?- convert([we, must, consider, options, to, transition, expeditiously], L).
 L = [we, must, learn, to, change, fast]
 ```
+*Reasoning for [we, must, consider, options]*
+```
+convert([we, must, consider, options], NL) :- 
+	convert([we| must, consider, options], [we| NL2]) :- 
+		convert([must| consider, options], [must| NL3]) :-
+			convert([consider, options], NL3) :-
+				substitution([consider, options], [learn]),
+				append([consider, options], L2, [consider, options]),
+				append([learn], L2, L3),
+				convert(L3, NL3), !.
+					% L2 is []
+					% L3 is [learn]
+					% convert([learn], NL3)
+					% convert([learn| ], [learn|NL4]) :-
+						convert([], NL4).
+						% NL4 is []
+					% NL3 is [learn]
+			% convert([consider, options], [learn])
+		% convert([must| consider, options], [must| learn])
+	% convert([we| must, consider, options], [we| must, learn])
+% convert([we, must, consider, options], [we, must, learn])
+
+```
 
 <p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
 
