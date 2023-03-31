@@ -75,7 +75,7 @@ append([X|L1], L2, [X|L3]) :- append(L1, L2, L3).
 L = [we, must, learn, to, change, fast]
 ```
 *Reasoning for [we, must, consider, options]*
-```
+```prolog
 convert([we, must, consider, options], NL) :- 
 	convert([we| must, consider, options], [we| NL2]) :- 
 		convert([must| consider, options], [must| NL3]) :-
