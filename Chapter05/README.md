@@ -95,7 +95,8 @@ convert([we, must, consider, options], NL) :-
 			convert([consider, options], [learn])
 		convert([must| consider, options], [must| learn])
 	convert([we| must, consider, options], [we| must, learn])
-convert([we, must, consider, options], [we, must, learn]).
+convert([we, must, consider, options], [we, must, learn])
+
 NL = [we, must, learn].
 
 ```
