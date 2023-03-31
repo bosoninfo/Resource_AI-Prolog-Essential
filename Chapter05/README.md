@@ -84,17 +84,18 @@ convert([we, must, consider, options], NL) :-
 				append([consider, options], L2, [consider, options]),
 				append([learn], L2, L3),
 				convert(L3, NL3), !.
-					% L2 is []
-					% L3 is [learn]
-					% convert([learn], NL3)
-					% convert([learn| ], [learn|NL4]) :-
+					L2 = []
+					L3 = [learn]
+					convert([learn], NL3)
+					convert([learn| ], [learn|NL4]) :-
 						convert([], NL4).
-						% NL4 is []
-					% NL3 is [learn]
-			% convert([consider, options], [learn])
-		% convert([must| consider, options], [must| learn])
-	% convert([we| must, consider, options], [we| must, learn])
-% convert([we, must, consider, options], [we, must, learn])
+						NL4 = []
+					NL3 = [learn]
+			convert([consider, options], [learn])
+		convert([must| consider, options], [must| learn])
+	convert([we| must, consider, options], [we| must, learn])
+convert([we, must, consider, options], [we, must, learn]).
+NL = [we, must, learn].
 
 ```
 
