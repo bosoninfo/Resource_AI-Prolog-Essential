@@ -75,7 +75,7 @@ The following queries can be answered:
 ?_ grandFather(X, Y).
 ```
 
-## 2.1 Basics - Constants, Variables, Terms, Predicates and Atoms
+## 2.2 Basics - Constants, Variables, Terms, Predicates and Atoms
 
 In Prolog, the basic building blocks of a program are constants, variables, terms, predicates, and atoms. Here's a brief description of each of these concepts:
 
@@ -111,7 +111,8 @@ In Prolog, the basic building blocks of a program are constants, variables, term
 
 In Prolog, constants, variables, terms, predicates, and atoms are all used to build programs that represent logical statements and relationships between objects. Understanding these basic building blocks is essential for writing effective Prolog programs.
 
-## 2.2 Logical Connectives
+## 2.3 Logical connectives
+
 In Prolog, logical connectives are represented as follows:
 
 | Logic|Description |Prolog |
@@ -120,3 +121,51 @@ In Prolog, logical connectives are represented as follows:
 |  ∨  | disjunction |   ;   |
 |  ←  | implication |   :-  |
 |  ¬  | negation    |   not |
+
+***:blue_book: Example 2.3.1***
+
+```prolog
+parent(X, Y) :- daughter(Y,X).
+mother(X, Y) :- parent(X, Y), not(male(X)).
+```
+are equivalent to 
+parent(X,Y) ← daughter (Y,X).
+mother(X,Y)← parent(X,Y)∧¬male(X)
+
+## 2.4 Logic program
+
+A logic program is a set of program clauses. A program clause can be a fact, a rule or a goal.
+
+***:blue_book: Example 2.4.1***
+
+```prolog
+% Facts
+likes(john, mary).
+likes(mary, pizza).
+
+% Rules
+likes(john, X) :- likes(X, pizza).
+
+% Queries
+?- likes(john, mary). % true
+?- likes(mary, john). % false
+?- likes(john, pizza). % true
+```
+
+In this program, we have:
+
+**Facts:** These are statements that are known to be true. In this case, we have two facts: "John likes Mary" and "Mary likes pizza".
+
+**Rules:** These are statements that define new facts based on existing facts. In this case, we have one rule: "If X likes pizza, then John likes X".
+
+**Queries:** These are questions that we ask of the program. In this case, we are asking whether John likes Mary, whether Mary likes John, and whether John likes pizza.
+
+**Goal:** is a statement that we want to prove or satisfy. A goal can be a query or a subgoal that is generated during the evaluation of a rule. For example, in the rule:
+
+```prolog
+likes(john, X) :- likes(X, pizza).
+```
+The goal is to find a value of X such that John likes X, and X likes pizza. The Prolog interpreter will try to find a solution for this goal by using the rules and facts that are defined in the program. If it can find a solution, it will bind the variable X to the appropriate value and add a new fact to the database.
+
+
+## 2.5 Arithmetic Calculations
