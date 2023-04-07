@@ -154,13 +154,13 @@ likes(john, X) :- likes(X, pizza).
 
 In this program, we have:
 
--**Facts:** These are statements that are known to be true. In this case, we have two facts: "John likes Mary" and "Mary likes pizza".
+- **Facts:** These are statements that are known to be true. In this case, we have two facts: "John likes Mary" and "Mary likes pizza".
 
--**Rules:** These are statements that define new facts based on existing facts. In this case, we have one rule: "If X likes pizza, then John likes X".
+- **Rules:** These are statements that define new facts based on existing facts. In this case, we have one rule: "If X likes pizza, then John likes X".
 
--**Queries:** These are questions that we ask of the program. In this case, we are asking whether John likes Mary, whether Mary likes John, and whether John likes pizza.
+- **Queries:** These are questions that we ask of the program. In this case, we are asking whether John likes Mary, whether Mary likes John, and whether John likes pizza.
 
--**Goal:** is a statement that we want to prove or satisfy. A goal can be a query or a subgoal that is generated during the evaluation of a rule. For example, in the rule:
+- **Goal:** is a statement that we want to prove or satisfy. A goal can be a query or a subgoal that is generated during the evaluation of a rule. For example, in the rule:
 
 ```prolog
 likes(john, X) :- likes(X, pizza).
