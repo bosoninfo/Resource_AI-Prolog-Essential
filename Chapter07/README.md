@@ -240,4 +240,4 @@ A unifier `θ` is defined as the most general unifier of `L` if it satisfies the
 ***:blue_book: Example 7.4.5***
 - Let `L = {p(X), p(Y)}`.
 - Let `θ = {X/Y}`. `θ` is the most general unifier.
-- Let `θ1 = {X/a, Y/a}`. `θ1` is a unifier of `L` and `θ1
+- Let `θ1 = {X/a, Y/a}`. `θ1` is a unifier of `L` and `θ1 = θφ`, where `φ = {Y/a}` is a substitution.
