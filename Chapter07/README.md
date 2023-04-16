@@ -129,6 +129,7 @@ Clause `F` is defined as
 - a goal clause: if $m>0$ and $n=0$.  
   - $\color{cyan}\leftarrow A_1(X)\land A_2(X)\land\cdots\land A_m(X))$
 
+### :star: `Definition` Program Clause, Goal Clause, Horn Clause
 A program clause is either a unit clause or a definite clause. Both program clauses and goal clauses are called Horn clauses. Note that since all the variables in a clause are universally quantified, the quantifier can be omitted.
 
 ***:blue_book: Example 7.3.1***
