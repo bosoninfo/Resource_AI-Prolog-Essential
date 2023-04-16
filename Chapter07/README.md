@@ -130,3 +130,18 @@ Clause `F` is defined as
   - $\color{cyan}\leftarrow A_1(X)\land A_2(X)\land\cdots\land A_m(X))$
 
 A program clause is either a unit clause or a definite clause. Both program clauses and goal clauses are called Horn clauses. Note that since all the variables in a clause are universally quantified, the quantifier can be omitted.
+
+***:blue_book: Example 7.3.1***
+
+Let `a` and `b` be constants; `X` and `Y` be variables; `f(X, Y)` be a function and `r(X)`, `t(Y)`, `p1(X)`, `p2(X)`, `p3(X)`, `q(X)`, `q1(X)` and `q2(X)` be predicates. The following formulas are clauses.
+```
+q(X) ← p1(X) ∧ p2(X) ∧ p3(X)
+r(f(a, b)) ←
+← t(Y)
+(q1(X) ∨ q2(X)) ← p1(X) ∧ p2(X) ∧ p3(X)
+```
+But the following formulas are not clauses
+```
+(∃Y)(r(b) ∨ t(Y))
+r(Y) ∧ (∀Y)t(Y)
+```
