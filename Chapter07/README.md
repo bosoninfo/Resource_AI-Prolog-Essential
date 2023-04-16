@@ -75,3 +75,16 @@ based on first order logic.
 Reasoning approaches can be divided into two categories: Topdown and Bottom-up.
 - Top-down is the approach that starts the derivation from the goal, and traces down to the fact set through rules.
 - Bottom-up is the approach to start reasoning from the fact set. It repeatedly applies rules to the fact set, derive new facts, updates the fact set till the goal is proved or the fact set becomes stabilized.
+
+***:blue_book Example 7.2.1***
+With the program in ***Example 7.1.1***, if given a goal `←stayingInDoor`, the derivation (bottom-up) will be as follows.
+```
+raining
+spring
+playingTennis
+hayFever ← spring
+stayingInDoor ← raining ∧ hayFever
+playingFootball ← winter
+```
+- { $\color{cyan}\text{raining, spring, playingTennis}$ }
+- { $\color{cyan}\text{raining, spring, playingTennis}$ } + { $\color{orange}\text{hayFever}$ } due to `hayFever ← spring`
