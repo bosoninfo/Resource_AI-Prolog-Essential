@@ -71,6 +71,8 @@ givesAsPresent(X, Y, Z) ← likes(X, Z) ∧ likes(Y, Z)
 based on first order logic.
 - ***Example 7.1.1*** and ***Example 7.1.3*** are examples of monotonic reasoning. ***Example 7.1.2*** which includes negation, represents a type of non-monotonic reasoning.
 
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
 ## 7.2 Automated Reasoning - Top-down and Bottom-up
 Reasoning approaches can be divided into two categories: Topdown and Bottom-up.
 - Top-down is the approach that starts the derivation from the goal, and traces down to the fact set through rules.
@@ -108,6 +110,8 @@ playingFootball ← winter
 - To prove `hayFever`, and we know `hayFever ← spring`
 - All we need to prove is `spring`
 - `spring` is a fact, proved.
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
 
 ## 7.3 Logic Programming
 In this tutorial, we will concentrate on one type of reasoning – reasoning based on First Order Logic (Logic Programming). In particular, we will learn SLD-resolution which is a top-down approach.
