@@ -146,3 +146,10 @@ But the following formulas are not clauses
 (∃Y)(r(b) ∨ t(Y))
 r(Y) ∧ (∀Y)t(Y)
 ```
+
+### :star: `Definition` Logic Program
+A finite set of program clauses is defined as a logic program (Horn clause logic program), denoted as `P`.
+- In the program, a unit clause is called a fact
+- a definite clause is called a rule. 
+
+This is exactly the same as we defined in PROLOG except the notations (ie. `¬` is represented as `:-` in PROLOG and `∧` is written as `,`)
