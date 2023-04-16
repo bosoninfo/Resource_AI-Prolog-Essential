@@ -225,3 +225,6 @@ Let $L = \lbrace S_1, S_2,\cdots, S_n \rbrace$ be a set of formulas. A substitut
 - Then `θ1 = {X/a, Y/a}`, `θ2 = {X/f(a), Y/f(a)`, `θ3 = {X/Y}` are all unifiers of `L`.
 - Let `L = {p(W) ∧ q(Y), p(X) ∧ q(g(c)), p(Z) ∧ q(g(Z))}`.
 - Then `θ = {W/c, X/c, Y/g(c), Z/c}` is a unifier of `L`.
+
+### :star: `Definition` Most General Unifier
+A unifier `θ` is defined as the most general unifier of `L` if it satisfies the condition that for every unifier `θ1` of `L`, there exists a substitution `φ` of `L`, such that $θ_1 = θ_φ$.
