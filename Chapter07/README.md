@@ -207,5 +207,7 @@ prime_suspect(Person, Crime) ←
 A substitution is a binding $X_i$ with $t_i$ ( $i = 1, 2,\cdots, n$ ), where { $X_1, X_2,\cdots, X_n$ } is a set of variables and { $t_1, t_2, \cdots, t_n$ } is a set of terms. A substitution is ground, if $t_i$ is a constant ( $i = 1, 2, \cdots, n$ ).
 
 ***:blue_book: Example 7.4.2***
-- `p(f(a), T, Z) ∧ q(u, a)
-- is the result of the substitution of `p(f(X), Y, Z) ∧ q(u, X)` with `θ = {X/a, Y/T}`
+- `p(f(a), T, Z) ∧ q(u, a)` 
+- is the result of the substitution of `p(f(X), Y, Z) ∧ q(u, X)` with `θ = {X/a, Y/T}`.
+- The formula `p(f(a), b, c) ∧ q(u, a)` 
+- is the result of substitution of `p(f(X), Y, Z) ∧ q(u, X)` with `α = {X/a, Y/b, Z/c}`, `α` is a ground substitution.
