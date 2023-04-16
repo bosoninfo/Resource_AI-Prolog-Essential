@@ -1,4 +1,4 @@
-# 4 Reasoning/AI Programming Part 3
+# 4 PROLOG Part 3
 
 |Table of Sections|
 |--|

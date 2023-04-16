@@ -1,4 +1,4 @@
-# 2 Logic & Reasoning / AI programming Part 1
+# 2 PROLOG Part 1
 
 |Table of Sections|
 |--|
