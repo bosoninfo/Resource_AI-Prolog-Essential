@@ -66,6 +66,7 @@ givesAsPresent(X, Y, Z) ← likes(X, Z) ∧ likes(Y, Z)
 - From the program, we can conclude a set of facts
 - { $\color{cyan}\text{likes(alice, chocolate), likes(alice, wine), likes(bob, wine),  givesAsPresent(alice, bob, wine), givesAsPresent(bob, alice, wine)}$ }
 
+*In Summary*
 - ***Example 7.1.1*** and ***Example 7.1.2*** are examples of reasoning based on propositional logic. While ***Example 7.1.3*** is an example of reasoning
 based on first order logic.
 - ***Example 7.1.1*** and ***Example 7.1.3*** are examples of monotonic reasoning. ***Example 7.1.2*** which includes negation, represents a type of non-monotonic reasoning.
