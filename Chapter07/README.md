@@ -181,3 +181,4 @@ t(X,Y) ← r(X,Y) ∧ s(X)
 - SL-resolution stands for Linear resolution with Selection functions.
 - SLD-resolution defines the process to prove a goal for a logic program.
 - SLD-resolution contains a set of SLD-derivations for inference and a set of rules (computation rule, selection rule, and ordering rule) for selection.
+
