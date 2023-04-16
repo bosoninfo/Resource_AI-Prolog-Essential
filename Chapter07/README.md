@@ -216,3 +216,6 @@ Substituions can be composed.
 - Let `θ = {X/a, Y/T}, β = {T/b, Z/c}` be two substituions
 - We denote `((p(f(X), Y, Z) ∧ q(u, X))θ)β` as `(p(f(X), Y, Z) ∧ q(u, X))(θβ)`
 - `θβ = {X/a, Y/b, Z/c}` is called the composition of substitions `θ` and `β`
+
+### :star: `Definition` Unification
+Let $L = \lbrace S_1, S_2,\cdots, S_n \rbrace$ be a set of formulas. A substitution `θ` is defined as a unifier of `L`, if it satisfies $S_1θ = S_2θ = \cdots = S_nθ$. `L` is unifiable, if it has a unifier. The procedure of finding the unifier and unifying `L` is called the unification of `L`. (A set of formulae may have more than one unifier.)
