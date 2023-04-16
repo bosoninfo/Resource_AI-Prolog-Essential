@@ -211,3 +211,9 @@ A substitution is a binding $X_i$ with $t_i$ ( $i = 1, 2,\cdots, n$ ), where { $
 - is the result of the substitution of `p(f(X), Y, Z) ∧ q(u, X)` with `θ = {X/a, Y/T}`.
 - The formula `p(f(a), b, c) ∧ q(u, a)` 
 - is the result of substitution of `p(f(X), Y, Z) ∧ q(u, X)` with `α = {X/a, Y/b, Z/c}`, `α` is a ground substitution.
+
+***:blue_book: Example 7.4.3***
+Substituions can be composed.
+- Let `θ = {X/a, Y/T}, β = {T/b, Z/c}` be two substituions
+- We denote `((p(f(X), Y, Z) ∧ q(u, X))θ)β` as `(p(f(X), Y, Z) ∧ q(u, X))(θβ)`
+- `θβ = {X/a, Y/b, Z/c}` is called the composition of substitions `
