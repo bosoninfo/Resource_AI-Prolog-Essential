@@ -163,6 +163,13 @@ Note that this is exactly the same as we defined in PROLOG except the notations:
 
 ***:blue_book: Example 7.3.2***
 
-If `a` and `b` are constants; `X`, `Y`, `Z` are variables; `p(X)`, `q(X)`, `s(X)`, `r(X,Y)` and `t(X,Y)` are predicates, then
+If `a` and `b` are constants; `X`, `Y`, `Z` are variables; `p(X)`, `q(X)`, `s(X)`, `r(X,Y)` and `t(X,Y)` are predicates, then the following code is a logic program.
 ```
+p(a) ←
+q(b) ←
+s(a) ←
+r(Y,Z) ← p(Y) ∧ q(Z)
+t(X,Y) ← r(X,Y) ∧ s(X)
 ```
+- Clauses `p(a) ←`, `q(b) ←`, `s(a) ←` are the facts
+- Clauses `r(Y,Z) ← p(Y) ∧ q(Z)`, `t(X,Y) ← r(X,Y) ∧ s(X)` are the rules.
