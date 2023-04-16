@@ -71,6 +71,8 @@ givesAsPresent(X, Y, Z) ← likes(X, Z) ∧ likes(Y, Z)
 based on first order logic.
 - ***Example 7.1.1*** and ***Example 7.1.3*** are examples of monotonic reasoning. ***Example 7.1.2*** which includes negation, represents a type of non-monotonic reasoning.
 
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
 ## 7.2 Automated Reasoning - Top-down and Bottom-up
 Reasoning approaches can be divided into two categories: Topdown and Bottom-up.
 - Top-down is the approach that starts the derivation from the goal, and traces down to the fact set through rules.
@@ -109,6 +111,8 @@ playingFootball ← winter
 - All we need to prove is `spring`
 - `spring` is a fact, proved.
 
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
 ## 7.3 Logic Programming
 In this tutorial, we will concentrate on one type of reasoning – reasoning based on First Order Logic (Logic Programming). In particular, we will learn SLD-resolution which is a top-down approach.
 
@@ -121,13 +125,13 @@ where $B_i(X)$ and $A_j(X)$ are atoms, and $X$ may be a multi-ary variable. `F` 
 
 Clause `F` is defined as
 - empty: if $m=0$ and $n=0$. 
-  - $\color{cyan}(\forall X)\leftarrow$
+    - $\color{cyan}(\forall X)\leftarrow$
 - a unit clause: if $m=0$ and $n=1$. 
-  - $\color{cyan}(\forall X)(B_1(X))\leftarrow$
+    - $\color{cyan}(\forall X)(B_1(X))\leftarrow$
 - a definite clause: if $m>0$ and $n=1$. 
-  - $\color{cyan}(\forall X)(B_1(X)\leftarrow A_1(X)\land A_2(X)\land\cdots\land A_m(X))$ 
+    - $\color{cyan}(\forall X)(B_1(X)\leftarrow A_1(X)\land A_2(X)\land\cdots\land A_m(X))$ 
 - a goal clause: if $m>0$ and $n=0$.  
-  - $\color{cyan}\leftarrow A_1(X)\land A_2(X)\land\cdots\land A_m(X))$
+    - $\color{cyan}\leftarrow A_1(X)\land A_2(X)\land\cdots\land A_m(X))$
 
 ### :star: `Definition` Program Clause, Goal Clause, Horn Clause
 A program clause is either a unit clause or a definite clause. Both program clauses and goal clauses are called Horn clauses. Note that since all the variables in a clause are universally quantified, the quantifier can be omitted.
@@ -156,3 +160,59 @@ Note that this is exactly the same as we defined in PROLOG except the notations:
 - `¬` is represented as `:-` in PROLOG
 - `∧` is written as `,` in PROLOG
 - `∨` is written as `;` in PROLOG
+
+***:blue_book: Example 7.3.2***
+
+If `a` and `b` are constants; `X`, `Y`, `Z` are variables; `p(X)`, `q(X)`, `s(X)`, `r(X,Y)` and `t(X,Y)` are predicates, then the following code is a logic program.
+```
+p(a) ←
+q(b) ←
+s(a) ←
+r(Y,Z) ← p(Y) ∧ q(Z)
+t(X,Y) ← r(X,Y) ∧ s(X)
+```
+- Clauses `p(a) ←`, `q(b) ←`, `s(a) ←` are the facts
+- Clauses `r(Y,Z) ← p(Y) ∧ q(Z)`, `t(X,Y) ← r(X,Y) ∧ s(X)` are the rules.
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
+## 7.4 SLD-Resolution
+- SLD-resolution stands for SL-resolution for Definite clauses. 
+- SL-resolution stands for Linear resolution with Selection functions.
+- SLD-resolution defines the process to prove a goal for a logic program.
+- SLD-resolution contains a set of SLD-derivations for inference and a set of rules (computation rule, selection rule, and ordering rule) for selection.
+
+***:blue_book: Example 7.4.1***
+
+Let's examine the logic program with a goad `← prime_suspect(Who, robbery)`.
+```
+possible_suspect(fred) ←
+prime_suspect(jack, robbery) ←
+crime(robbery, jo, wednesday, pub) ←
+was_at(fred, wednesday, pub) ←
+possible_suspect(micheal) ←
+was_at(micheal, wednesday, pub) ←
+had_motive_against(micheal, jo) ←
+prime_suspect(Person, Crime) ← 
+    crime(Crime, Victim, Time, Place) ∧
+    possible_suspect(Person) ∧ 
+    was_at(Person, Time, Place) ∧
+    had_motive_against(Person, Victim)
+```
+- To prove `prime_suspect(Who, robbery)`, all we need to prove is `crime(Crime, Victim, Time, Place) ∧ possible_suspect(Person) ∧ was_at(Person, Time, Place) ∧ had_motive_against(Person, Victim)`
+- This replacement of `Person` with `Who`, and `Crime` with `robbery`, is a substitution. It is denoted as `{Person/Who, Crime/robbery}`.
+
+### :star: `Definition` Substitution
+A substitution is a binding $X_i$ with $t_i$ ( $i = 1, 2,\cdots, n$ ), where { $X_1, X_2,\cdots, X_n$ } is a set of variables and { $t_1, t_2, \cdots, t_n$ } is a set of terms. A substitution is ground, if $t_i$ is a constant ( $i = 1, 2, \cdots, n$ ).
+
+***:blue_book: Example 7.4.2***
+- `p(f(a), T, Z) ∧ q(u, a)` 
+- is the result of the substitution of `p(f(X), Y, Z) ∧ q(u, X)` with `θ = {X/a, Y/T}`.
+- The formula `p(f(a), b, c) ∧ q(u, a)` 
+- is the result of substitution of `p(f(X), Y, Z) ∧ q(u, X)` with `α = {X/a, Y/b, Z/c}`, `α` is a ground substitution.
+
+***:blue_book: Example 7.4.3***
+Substituions can be composed.
+- Let `θ = {X/a, Y/T}, β = {T/b, Z/c}` be two substituions
+- We denote `((p(f(X), Y, Z) ∧ q(u, X))θ)β` as `(p(f(X), Y, Z) ∧ q(u, X))(θβ)`
+- `θβ = {X/a, Y/b, Z/c}` is called the composition of substitions `θ` and `β`
