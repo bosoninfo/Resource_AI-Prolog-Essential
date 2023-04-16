@@ -116,3 +116,11 @@ In this tutorial, we will concentrate on one type of reasoning – reasoning bas
 In first order logic, every formula `F` can be written in the form of
 
 $$(\forall X)(B_1(X)\lor B_2(X)\lor\cdots\lor B_n(X)\leftarrow A_1(X)\land A_2(X)\land\cdots\land A_m(X))$$
+
+where $B_i(X)$ and $A_j(X)$ are atoms, and $X$ may be a multi-ary variable. `F` is called a clause when it is in such a form.
+
+Clause `F` is defined as
+- empty: if $m=0$ and $n=0$
+- a unit clause: if $m=0$ and $n=1$
+- a definite clause: if $m>0$ and $n=1$
+- a goal clause: if $m>0$ and $n=0$.
