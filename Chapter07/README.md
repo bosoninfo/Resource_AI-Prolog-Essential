@@ -183,6 +183,8 @@ t(X,Y) ← r(X,Y) ∧ s(X)
 <p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
 
 ## 7.4 Substitution
+***:blue_book: Example 7.4.1***
+
 Let's examine the logic program with a goad `← prime_suspect(Who, robbery)`.
 ```
 possible_suspect(fred) ←
@@ -203,3 +205,7 @@ prime_suspect(Person, Crime) ←
 
 ### :star: `Definition` Substitution
 A substitution is a binding $X_i$ with $t_i$ ( $i = 1, 2,\cdots, n$ ), where { $X_1, X_2,\cdots, X_n$ } is a set of variables and { $t_1, t_2, \cdots, t_n$ } is a set of terms. A substitution is ground, if $t_i$ is a constant ( $i = 1, 2, \cdots, n$ ).
+
+***:blue_book: Example 7.4.2***
+- `p(f(a), T, Z) ∧ q(u, a)
+- is the result of the substitution of `p(f(X), Y, Z) ∧ q(u, X)` with `θ = {X/a, Y/T}`
