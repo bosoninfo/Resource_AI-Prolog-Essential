@@ -28,15 +28,9 @@ stayingInDoor ← raining ∧ hayFever
 playingFootball ← winter
 ```
 - Initially, the fact set is 
-```
-{raining, spring, playingTennis}
-```
+- `{raining, spring, playingTennis}`
 - From `sping` and `hayFever ← spring`, `hayFever` can be derived, so the fact set becomes
-```
-{raining, spring, playingTennis, hayFever}
-```
+- `{raining, spring, playingTennis, hayFever}`
 - From `raining`, `hayFever` and `stayingInDoor ← raining ∧ hayFever`, `stayingInDoor` can be derived, so the fact set becomes
-```
-{raining, spring, playingTennis, hayFever, stayingInDoor}
-```
+- `{raining, spring, playingTennis, hayFever, stayingInDoor}`
 - The fact set has been increasing, and no element has been deleted from it. This type of reasoning is monotomic.
