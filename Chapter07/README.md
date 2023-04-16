@@ -121,10 +121,12 @@ where $B_i(X)$ and $A_j(X)$ are atoms, and $X$ may be a multi-ary variable. `F` 
 
 Clause `F` is defined as
 - empty: if $m=0$ and $n=0$. 
-  - $\color{cyan}(\forall X)$
+  - $\color{cyan}(\forall X)\leftarrow$
 - a unit clause: if $m=0$ and $n=1$. 
-  - $\color{cyan}(\forall X)(B_1(X))$
+  - $\color{cyan}(\forall X)(B_1(X))\leftarrow$
 - a definite clause: if $m>0$ and $n=1$. 
   - $\color{cyan}(\forall X)(B_1(X)\leftarrow A_1(X)\land A_2(X)\land\cdots\land A_m(X))$ 
 - a goal clause: if $m>0$ and $n=0$.  
   - $\color{cyan}\leftarrow A_1(X)\land A_2(X)\land\cdots\land A_m(X))$
+
+A program clause is either a unit clause or a definite clause. Both program clauses and goal clauses are called Horn clauses. Note that since all the variables in a clause are universally quantified, the quantifier can be omitted.
