@@ -88,3 +88,4 @@ playingFootball ← winter
 ```
 - { $\color{cyan}\text{raining, spring, playingTennis}$ }
 - { $\color{cyan}\text{raining, spring, playingTennis}$ } + { $\color{orange}\text{hayFever}$ } due to `hayFever ← spring`
+- { $\color{cyan}\text{raining, spring, playingTennis, hayFever}$ } + { $\color{orange}\text{stayingInDoor}$ } due to `stayingInDoor ← raining ∧ hayFever`
