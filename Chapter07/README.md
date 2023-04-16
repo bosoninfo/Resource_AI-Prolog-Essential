@@ -45,3 +45,15 @@ stayingInDoor ← raining ∧ hayFever
 ¬playingTennis ← raining
 playingFootball ← winter
 ```
+- The initial fact set contains
+- `{raining, spring, playingTennis}`
+- From `spring` and `hayFever ← spring`, we can derive `hayFever`, so the fact set becomes
+- `{raining, spring, playingTennis, hayFever}`
+- From `raining`, `hayFever` and `stayingInDoor ← raining ∧ hayFever`, `stayingInDoor` can be derived, so the fact set becomes
+- `{raining, spring, playingTennis, hayFever, stayingInDoor}`
+- From `raining` and `¬playingTennis ← raining`, we can derive `¬playingTennis`. Therefore, the fact set becomes
+- `{raining, spring, hayFever, stayingInDoor}`
+
+The proposition `playingTennis` was, at one stage, in the fact set; but was, later on, deleted. This type of reasoning is non-monotonic – elements in the fact set may be deleted during the derivation.
+
+***:blue_book: Example 7.1.3***
