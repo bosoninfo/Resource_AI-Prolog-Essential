@@ -174,11 +174,27 @@ t(X,Y) ← r(X,Y) ∧ s(X)
 - Clauses `p(a) ←`, `q(b) ←`, `s(a) ←` are the facts
 - Clauses `r(Y,Z) ← p(Y) ∧ q(Z)`, `t(X,Y) ← r(X,Y) ∧ s(X)` are the rules.
 
-<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
-
-## 7.4 SLD-Resolution
+### :star: `Definition` SLD-Resolution
 - SLD-resolution stands for SL-resolution for Definite clauses. 
 - SL-resolution stands for Linear resolution with Selection functions.
 - SLD-resolution defines the process to prove a goal for a logic program.
 - SLD-resolution contains a set of SLD-derivations for inference and a set of rules (computation rule, selection rule, and ordering rule) for selection.
 
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
+## 7.4 Substitution
+Let's examine the logic program with a goad `← prime_suspect(Who, robbery)`.
+```
+possible_suspect(fred) ←
+prime_suspect(jack, robbery) ←
+crime(robbery, jo, wednesday, pub) ←
+was_at(fred, wednesday, pub) ←
+possible_suspect(micheal) ←
+was_at(micheal, wednesday, pub) ←
+had_motive_against(micheal, jo) ←
+prime_suspect(Person, Crime) ← 
+  crime(Crime, Victim, Time, Place) ∧
+  possible_suspect(Person) ∧ 
+  was_at(Person, Time, Place) ∧
+  had_motive_against(Person, Victim)
+```
