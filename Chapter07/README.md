@@ -77,6 +77,7 @@ Reasoning approaches can be divided into two categories: Topdown and Bottom-up.
 - Bottom-up is the approach to start reasoning from the fact set. It repeatedly applies rules to the fact set, derive new facts, updates the fact set till the goal is proved or the fact set becomes stabilized.
 
 ***:blue_book Example 7.2.1***
+
 With the program in ***Example 7.1.1***, if given a goal `←stayingInDoor`, the derivation (bottom-up) will be as follows.
 ```
 raining
