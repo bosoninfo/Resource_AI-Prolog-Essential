@@ -148,8 +148,8 @@ r(Y) ∧ (∀Y)t(Y)
 ```
 
 ### :star: `Definition` Logic Program
-A finite set of program clauses is defined as a logic program (Horn clause logic program), denoted as `P`.
-- In the program, a unit clause is called a fact
+A finite set of program clauses is defined as a logic program (Horn clause logic program), denoted as `P`. In the program, 
+- a unit clause is called a fact
 - a definite clause is called a rule. 
 
 Note that this is exactly the same as we defined in PROLOG except the notations:
