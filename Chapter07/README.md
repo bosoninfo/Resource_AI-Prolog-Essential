@@ -102,3 +102,17 @@ hayFever ← spring
 stayingInDoor ← raining ∧ hayFever
 playingFootball ← winter
 ```
+- To prove `stayingInDoor`, and we know `stayingInDoor ← raining ∧ hayFever`
+- All we need to prove is `raining ∧ hayFever`
+- `raining` is a fact, all we need to prove is `hayFever`
+- To prove `hayFever`, and we know `hayFever ← spring`
+- All we need to prove is `spring`
+- `spring` is a fact, proved.
+
+## 7.3 Logic Programming
+In this tutorial, we will concentrate on one type of reasoning – reasoning based on First Order Logic (Logic Programming). In particular, we will learn SLD-resolution which is a top-down approach.
+
+### :star: `Definition` Clause
+In first order logic, every formula `F` can be written in the form of
+
+$$(\forall X)(B_1(X)\lor B_2(X)\lor\cdots\lor B_n(X)\leftarrow A_1(X)\land A_2(X)\land\cdots\land A_m(X))$$
