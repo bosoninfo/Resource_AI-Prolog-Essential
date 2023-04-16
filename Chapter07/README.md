@@ -34,3 +34,14 @@ playingFootball ← winter
 - From `raining`, `hayFever` and `stayingInDoor ← raining ∧ hayFever`, `stayingInDoor` can be derived, so the fact set becomes
 - `{raining, spring, playingTennis, hayFever, stayingInDoor}`
 - The fact set has been increasing, and no element has been deleted from it. This type of reasoning is monotomic.
+
+***:blue_book: Example 7.1.2***
+```
+raining
+spring
+playingTennis
+hayFever ← spring
+stayingInDoor ← raining ∧ hayFever
+¬playingTennis ← raining
+playingFootball ← winter
+```
