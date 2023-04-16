@@ -228,3 +228,16 @@ Let $L = \lbrace S_1, S_2,\cdots, S_n \rbrace$ be a set of formulas. A substitut
 
 ### :star: `Definition` Most General Unifier
 A unifier `θ` is defined as the most general unifier of `L` if it satisfies the condition that for every unifier `θ1` of `L`, there exists a substitution `φ` of `L`, such that $θ_1 = θ_φ$.
+- The most general unifier (mgu) of `L` is the unifier which maximizes the freedom of `L`.
+- If `L` has a unifier, then it has a most general unifier.
+- Some formulas have no unifiers and therefore they are formulas which cannot be unified. 
+
+***:blue_book: Example 7.4.4***
+- `{p(X), p(f(X))}` cannot be unified
+- `{p(X) ∧ q(X), p(X) ∨ q(X)}` cannot be unified.
+- `{p(X), q(X)}` cannot be unified.
+
+***:blue_book: Example 7.4.5***
+- Let `L = {p(X), p(Y)}`.
+- Let `θ = {X/Y}`. `θ` is the most general unifier.
+- Let `θ1 = {X/a, Y
