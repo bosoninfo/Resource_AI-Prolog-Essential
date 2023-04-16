@@ -19,3 +19,11 @@ set of derived consequences will never decrease. Otherwise it
 is a non-monotonic system.
 
 ***:blue_book: Example 7.1.1***
+```
+raining
+spring
+playingTennis
+hayFever ← spring
+stayingInDoor ← raining ∧ hayFever
+playingFootball ← winter
+```
