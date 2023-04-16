@@ -200,3 +200,6 @@ prime_suspect(Person, Crime) ←
 ```
 - To prove `prime_suspect(Who, robbery)`, all we need to prove is `crime(Crime, Victim, Time, Place) ∧ possible_suspect(Person) ∧ was_at(Person, Time, Place) ∧ had_motive_against(Person, Victim)`
 - This replacement of `Person` with `Who`, and `Crime` with `robbery`, is a substitution. It is denoted as `{Person/Who, Crime/robbery}`.
+
+### :star: `Definition` Substitution
+A substitution is a binding $X_i$ with $t_i$ ( $i = 1, 2,\cdots, n$ ), where { $X_1, X_2,\cdots, X_n$ } is a set of variables and { $t_1, t_2, \cdots, t_n$ } is a set of terms. A substitution is ground, if $t_i$ is a constant ( $i = 1, 2, \cdots, n$ ).
