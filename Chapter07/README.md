@@ -70,3 +70,8 @@ givesAsPresent(X, Y, Z) ← likes(X, Z) ∧ likes(Y, Z)
 - ***Example 7.1.1*** and ***Example 7.1.2*** are examples of reasoning based on propositional logic. While ***Example 7.1.3*** is an example of reasoning
 based on first order logic.
 - ***Example 7.1.1*** and ***Example 7.1.3*** are examples of monotonic reasoning. ***Example 7.1.2*** which includes negation, represents a type of non-monotonic reasoning.
+
+## 7.2 Automated Reasoning - Top-down and Bottom-up
+Reasoning approaches can be divided into two categories: Topdown and Bottom-up.
+- Top-down is the approach that starts the derivation from the goal, and traces down to the fact set through rules.
+- Bottom-up is the approach to start reasoning from the fact set. It repeatedly applies rules to the fact set, derive new facts, updates the fact set till the goal is proved or the fact set becomes stabilized.
