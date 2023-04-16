@@ -1,5 +1,7 @@
 # 7 Reasoning
 
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
 ## 7.1 Automated Reasoning
 
 ### :star: `Definition` Automated Reasoning
