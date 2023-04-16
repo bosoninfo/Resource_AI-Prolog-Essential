@@ -216,4 +216,4 @@ A substitution is a binding $X_i$ with $t_i$ ( $i = 1, 2,\cdots, n$ ), where { $
 Substituions can be composed.
 - Let `θ = {X/a, Y/T}, β = {T/b, Z/c}` be two substituions
 - We denote `((p(f(X), Y, Z) ∧ q(u, X))θ)β` as `(p(f(X), Y, Z) ∧ q(u, X))(θβ)`
-- `θβ = {X/a, Y/b, Z/c}` is called the composition of substitions `
+- `θβ = {X/a, Y/b, Z/c}` is called the composition of substitions `θ` and `β`
