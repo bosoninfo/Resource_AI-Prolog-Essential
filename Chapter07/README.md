@@ -216,3 +216,28 @@ Substituions can be composed.
 - Let `θ = {X/a, Y/T}, β = {T/b, Z/c}` be two substituions
 - We denote `((p(f(X), Y, Z) ∧ q(u, X))θ)β` as `(p(f(X), Y, Z) ∧ q(u, X))(θβ)`
 - `θβ = {X/a, Y/b, Z/c}` is called the composition of substitions `θ` and `β`
+
+### :star: `Definition` Unification
+Let $L = \lbrace S_1, S_2,\cdots, S_n \rbrace$ be a set of formulas. A substitution `θ` is defined as a unifier of `L`, if it satisfies $S_1θ = S_2θ = \cdots = S_nθ$. `L` is unifiable, if it has a unifier. The procedure of finding the unifier and unifying `L` is called the unification of `L`. (A set of formulae may have more than one unifier.)
+
+***:blue_book: Example 7.4.3***
+- Let `L = {p(X), p(Y)}`.
+- Then `θ1 = {X/a, Y/a}`, `θ2 = {X/f(a), Y/f(a)`, `θ3 = {X/Y}` are all unifiers of `L`.
+- Let `L = {p(W) ∧ q(Y), p(X) ∧ q(g(c)), p(Z) ∧ q(g(Z))}`.
+- Then `θ = {W/c, X/c, Y/g(c), Z/c}` is a unifier of `L`.
+
+### :star: `Definition` Most General Unifier
+A unifier `θ` is defined as the most general unifier of `L` if it satisfies the condition that for every unifier `θ1` of `L`, there exists a substitution `φ` of `L`, such that $θ_1 = θ_φ$.
+- The most general unifier (mgu) of `L` is the unifier which maximizes the freedom of `L`.
+- If `L` has a unifier, then it has a most general unifier.
+- Some formulas have no unifiers and therefore they are formulas which cannot be unified. 
+
+***:blue_book: Example 7.4.4***
+- `{p(X), p(f(X))}` cannot be unified
+- `{p(X) ∧ q(X), p(X) ∨ q(X)}` cannot be unified.
+- `{p(X), q(X)}` cannot be unified.
+
+***:blue_book: Example 7.4.5***
+- Let `L = {p(X), p(Y)}`.
+- Let `θ = {X/Y}`. `θ` is the most general unifier.
+- Let `θ1 = {X/a, Y/a}`. `θ1` is a unifier of `L` and `θ1 = θφ`, where `φ = {Y/a}` is a substitution.
