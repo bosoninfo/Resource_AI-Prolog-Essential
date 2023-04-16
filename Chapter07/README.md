@@ -152,4 +152,7 @@ A finite set of program clauses is defined as a logic program (Horn clause logic
 - In the program, a unit clause is called a fact
 - a definite clause is called a rule. 
 
-This is exactly the same as we defined in PROLOG except the notations (ie. `¬` is represented as `:-` in PROLOG and `∧` is written as `,`)
+This is exactly the same as we defined in PROLOG except the notations:
+- `¬` is represented as `:-` in PROLOG
+- `∧` is written as `,` in PROLOG
+- `∨` is written as `;` in PROLOG
