@@ -17,3 +17,5 @@ Automated reasoning is the study of using computers to simulate the activity of 
 Automated Reasoning can be divided into two categories: monotonic and non-monotonic. A reasoning system is monotonic if the set of axioms and the
 set of derived consequences will never decrease. Otherwise it
 is a non-monotonic system.
+
+***:blue_book: Example 7.1.1***
