@@ -160,3 +160,9 @@ Note that this is exactly the same as we defined in PROLOG except the notations:
 - `¬` is represented as `:-` in PROLOG
 - `∧` is written as `,` in PROLOG
 - `∨` is written as `;` in PROLOG
+
+***:blue_book: Example 7.3.2***
+
+If `a` and `b` are constants; `X`, `Y`, `Z` are variables; `p(X)`, `q(X)`, `s(X)`, `r(X,Y)` and `t(X,Y)` are predicates, then
+```
+```
