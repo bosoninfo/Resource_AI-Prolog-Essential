@@ -221,5 +221,7 @@ Substituions can be composed.
 Let $L = \lbrace S_1, S_2,\cdots, S_n \rbrace$ be a set of formulas. A substitution `θ` is defined as a unifier of `L`, if it satisfies $S_1θ = S_2θ = \cdots = S_nθ$. `L` is unifiable, if it has a unifier. The procedure of finding the unifier and unifying `L` is called the unification of `L`. (A set of formulae may have more than one unifier.)
 
 ***:blue_book: Example 7.4.3***
-- Let `L = {p(X), p(Y)}`
-- Then all `θ1 = {X/a, Y/b}`, `2
+- Let `L = {p(X), p(Y)}`.
+- Then `θ1 = {X/a, Y/a}`, `θ2 = {X/f(a), Y/f(a)`, `θ3 = {X/Y}` are all unifiers of `L`.
+- Let `L = {p(W) ∧ q(Y), p(X) ∧ q(g(c)), p(Z) ∧ q(g(Z))}`.
+- Then `θ = {W/c, X/c, Y/g(c), Z/c}` is a unifier of `L`.
