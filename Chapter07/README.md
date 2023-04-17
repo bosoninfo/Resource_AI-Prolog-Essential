@@ -292,4 +292,10 @@ If a SLD-derivation is terminated by (1), the derivation is successful and $θ_0
 
 Examine the logic program `P`
 ```
+dau(samantha, rebecca) ←
+dau(samantha, michael) ←
+dau(rebecca, tom) ←
+son(jack, michael) ←
+parent(rebecca, anna) ←
+parent(elizabeth, michael) ←
 ```
