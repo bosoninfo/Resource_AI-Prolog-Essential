@@ -310,4 +310,4 @@ Let the goal be `← son(jack, X) ∧ father(X, jack)`
 |General|Example|
 |--|--|
 |i=0||
-|Let $G_i :\leftarrow S_1\land S_2\land\cdots\land S_n$ be the goal|`← son(jack, X) ∧ father(X, jack)|
+|Let $G_i :\leftarrow S_1\land S_2\land\cdots\land S_n$ be the goal|`← son(jack, X) ∧ father(X, jack)`|
