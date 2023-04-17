@@ -241,3 +241,27 @@ A unifier `θ` is defined as the most general unifier of `L` if it satisfies the
 - Let `L = {p(X), p(Y)}`.
 - Let `θ = {X/Y}`. `θ` is the most general unifier.
 - Let `θ1 = {X/a, Y/a}`. `θ1` is a unifier of `L` and `θ1 = θφ`, where `φ = {Y/a}` is a substitution.
+
+### SLD-Derivation
+***:blue_book: Example 7.4.5***
+
+Let's again examine the logic program with a goad `← prime_suspect(Who, robbery)`.
+```
+possible_suspect(fred) ←
+prime_suspect(jack, robbery) ←
+crime(robbery, jo, wednesday, pub) ←
+was_at(fred, wednesday, pub) ←
+possible_suspect(micheal) ←
+was_at(micheal, wednesday, pub) ←
+had_motive_against(micheal, jo) ←
+prime_suspect(Person, Crime) ← 
+    crime(Crime, Victim, Time, Place) ∧
+    possible_suspect(Person) ∧ 
+    was_at(Person, Time, Place) ∧
+    had_motive_against(Person, Victim)
+```
+
+<img width="1101" alt="image" src="https://user-images.githubusercontent.com/19381768/232371845-dbc078a9-55ad-4f9c-beb5-832354495f21.png">
+
+### :star: `Definition` SLD-Derivation
+An SLD-derivation is a process to repeatedly derive a new goal from a logic problem and a given goal with certain computation rule by unification.
