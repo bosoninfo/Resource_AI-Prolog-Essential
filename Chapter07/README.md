@@ -283,3 +283,7 @@ An SLD-derivation is termiated by one of following two conditions
 2. no subgoals can be unified with any heads of the clauses in P.
 
 If a SLD-derivation is terminated by (1), the derivation is successful and $θ_0,θ_1,\cdots,θ_k$ is defined as the answer to the goal. If a SLD-derivation is terminated by (2), the derivation is failed.
+
+- A successful SLD-derivation is also called an SLD-refutation
+- Since both sucessful and failed SLD-derivations are derivations with finite steps, they are finite SLD-derivations.
+- If a derivation cannot be terminated finitely, it is called an infinite SLD-derivation.
