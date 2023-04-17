@@ -279,10 +279,12 @@ in $P$, $S_k$ and $A$ can be unified by $θ_i$ ($θ_i$ is the mgu), then the der
 $$G_{i+1} :\leftarrow (S_1\land\cdots\land A_1\land\cdots\land A_m\land\cdots\land S_n)θ_i$$
 
 An SLD-derivation is termiated by one of following two conditions
-1. the goal is empty.
-2. no subgoals can be unified with any heads of the clauses in P.
+<ol type="a">
+    <li>the goal is empty.</li>
+    <li>no subgoals can be unified with any heads of the clauses in P.</li>
+</ol>
 
-If a SLD-derivation is terminated by (1), the derivation is successful and $θ_0,θ_1,\cdots,θ_k$ is defined as the answer to the goal. If a SLD-derivation is terminated by (2), the derivation is failed.
+If a SLD-derivation is terminated by (1), the derivation is successful and $θ_0θ_1\cdotsθ_k$ is defined as the answer to the goal. If a SLD-derivation is terminated by (2), the derivation is failed.
 
 - A successful SLD-derivation is also called an SLD-refutation
 - Since both sucessful and failed SLD-derivations are derivations with finite steps, they are finite SLD-derivations.
@@ -341,3 +343,5 @@ Let the goal be `← son(jack, X) ∧ father(X, jack)`
 |and $S_1$ be the subgoal chosen by the computation rule.|`male(michael)`|
 |If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ is `P`, and $S_1$ and `A` can be unified by $θ_i$ (mgu)|`male(michael) ←` is a clause of the program, `θ_4 = {}`|
 |then the drived goal is $G_{i+1} :\leftarrow (A_1,\cdots,A_m,S_2,\cdots,S_n)θ_i$|`←`|
+|If a SLD-derivation is terminated by (a), we say the derivation is successful.|The SLD-derivation is terminated by the condition (a), so it is successful.|
+|$θ_0θ_1\cdotsθ_k$ is defined as the answer to the goal.|`θ_0 = {X/michael}`<br>`θ_1 = {X/michael, Y/jack}`<br>`θ_2 = {X/michael, Y/jack}`<br>`θ_3 = {}`<br>`θ_4 = {}`<br>`θ0θ1θ2θ3θ4 = {X/michael, Y/jack}`|
