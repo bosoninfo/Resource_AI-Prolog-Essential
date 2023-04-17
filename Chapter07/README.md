@@ -296,6 +296,12 @@ dau(samantha, rebecca) ←
 dau(samantha, michael) ←
 dau(rebecca, tom) ←
 son(jack, michael) ←
+male(tom) ←
+male(michael) ←
+male(jack) ←
 parent(rebecca, anna) ←
 parent(elizabeth, michael) ←
+parent(X, Y) ← son(Y, X)
+parent(X, Y) ← dau(Y, X)
+father(X, Y) ← parent(X, Y) ∧ male(X)
 ```
