@@ -266,4 +266,20 @@ prime_suspect(Person, Crime) ←
 ### :star: `Definition` SLD-Derivation
 An SLD-derivation is a process to repeatedly derive a new goal from a logic problem and a given goal with certain computation rule by unification.
 
-Let `P` be a program. Let $G_i : \leftarrow S_1\land\cdots\land S_k\land\cdots\land S_n$ be the $i^{th}$ derived goal and $S_k$ be the subgoal chosen by the computation rule. If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ in $P$, $S_k$ and $A$ can be unified by $θ_i$ ($θ_i$ is the mgu), then the derived goal is $G_{i+1} :\leftarrow (S_1\land\cdots\land A_1\land\cdots\land A_m\land\cdots\land S_n)θ_i$.
+Let `P` be a program. Let 
+
+$$G_i : \leftarrow S_1\land\cdots\land S_k\land\cdots\land S_n$$ 
+
+be the $i^{th}$ derived goal and $S_k$ be the subgoal chosen by the computation rule. If there is a clause 
+
+$$A\leftarrow A_1\land\cdots\land A_m$$
+
+in $P$, $S_k$ and $A$ can be unified by $θ_i$ ($θ_i$ is the mgu), then the derived goal is 
+
+$$G_{i+1} :\leftarrow (S_1\land\cdots\land A_1\land\cdots\land A_m\land\cdots\land S_n)θ_i$$
+
+An SLD-derivation is termiated by one of following two conditions
+1. the goal is empty.
+2. no subgoals can be unified with any heads of the clauses in P.
+
+If a SLD-derivation is terminated by (1), the derivation is successful and $θ_0,θ_1,\cdots,θ_k$ is defined as the answer to the goal. If a SLD-derivation is terminated by (2), the derivation is failed.
