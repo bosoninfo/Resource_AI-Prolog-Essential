@@ -305,3 +305,4 @@ parent(X, Y) ← son(Y, X)
 parent(X, Y) ← dau(Y, X)
 father(X, Y) ← parent(X, Y) ∧ male(X)
 ```
+Let the goal be `← son(jack, X) ∧ father(X, jack)`
