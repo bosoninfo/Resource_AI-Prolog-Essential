@@ -307,7 +307,8 @@ father(X, Y) ← parent(X, Y) ∧ male(X)
 ```
 Let the goal be `← son(jack, X) ∧ father(X, jack)`
 
-|General|Example|
+|General i=0|Example|
 |--|--|
-|i=0||
 |Let $G_i :\leftarrow S_1\land S_2\land\cdots\land S_n$ be the goal|`← son(jack, X) ∧ father(X, jack)`|
+|and $S_1$ be the subgoal chosen by the computation rule.|`son(jack, X)`|
+|If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ is `P`, and $S_1$ and `A` can be unified by $θ_i$ (mgu)|`son(jack, michael) ←` is a clause of the program, and `son(jack, X)` and `son(jack, micheal)` can be unified by `θ_i = {X/micheal}`|
