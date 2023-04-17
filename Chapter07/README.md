@@ -306,17 +306,24 @@ parent(X, Y) ← dau(Y, X)
 father(X, Y) ← parent(X, Y) ∧ male(X)
 ```
 Let the goal be `← son(jack, X) ∧ father(X, jack)`
-
-|General i=0|Example|
+### :seedling: i = 0
+|General|Example|
 |--|--|
 |Let $G_i :\leftarrow S_1\land S_2\land\cdots\land S_n$ be the goal|`← son(jack, X) ∧ father(X, jack)`|
 |and $S_1$ be the subgoal chosen by the computation rule.|`son(jack, X)`|
-|If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ is `P`, and $S_1$ and `A` can be unified by $θ_i$ (mgu)|`son(jack, michael) ←` is a clause of the program, and `son(jack, X)` and `son(jack, micheal)` can be unified by `θ_i = {X/micheal}`|
+|If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ is `P`, and $S_1$ and `A` can be unified by $θ_i$ (mgu)|`son(jack, michael) ←` is a clause of the program, and `son(jack, X)` and `son(jack, micheal)` can be unified by `θ_0 = {X/micheal}`|
 |then the drived goal is $G_{i+1} :\leftarrow (A_1,\cdots,A_m,S_2,\cdots,S_n)θ_i$|`← father(michael, jack)`|
-
-|General i=i|Example|
+### :seedling: i = 1
+|General|Example|
 |--|--|
 |Let $G_i :\leftarrow S_1\land S_2\land\cdots\land S_n$ be the goal|`← father(michael, jack)`|
 |and $S_1$ be the subgoal chosen by the computation rule.|`father(michael, jack)`|
-|If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ is `P`, and $S_1$ and `A` can be unified by $θ_i$ (mgu)|`father(X, Y) ← parent(X, Y) ∧ male(X)` is a clause of the program, and `father(michael, jack)` and `father(X, Y)` can be unified by `θ_i = {X/micheal, Y/jack}`|
+|If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ is `P`, and $S_1$ and `A` can be unified by $θ_i$ (mgu)|`father(X, Y) ← parent(X, Y) ∧ male(X)` is a clause of the program, and `father(michael, jack)` and `father(X, Y)` can be unified by `θ_1 = {X/micheal, Y/jack}`|
 |then the drived goal is $G_{i+1} :\leftarrow (A_1,\cdots,A_m,S_2,\cdots,S_n)θ_i$|`← parent(michael, jack) ∧ male(michael)`|
+### :seedling: i = 2
+|General|Example|
+|--|--|
+|Let $G_i :\leftarrow S_1\land S_2\land\cdots\land S_n$ be the goal|`← parent(michael, jack) ∧ male(michael)`|
+|and $S_1$ be the subgoal chosen by the computation rule.|`parent(michael, jack)`|
+|If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ is `P`, and $S_1$ and `A` can be unified by $θ_i$ (mgu)|`parent(X, Y) ← son(Y, X)` is a clause of the program, and `parent(michael, jack)` and `parent(X, Y)` can be unified by `θ_2 = {X/micheal, Y/jack}`|
+|then the drived goal is $G_{i+1} :\leftarrow (A_1,\cdots,A_m,S_2,\cdots,S_n)θ_i$|`← son(jack, michael) ∧ male(michael)`|
