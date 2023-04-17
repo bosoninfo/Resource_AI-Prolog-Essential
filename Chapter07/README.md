@@ -287,3 +287,9 @@ If a SLD-derivation is terminated by (1), the derivation is successful and $θ_0
 - A successful SLD-derivation is also called an SLD-refutation
 - Since both sucessful and failed SLD-derivations are derivations with finite steps, they are finite SLD-derivations.
 - If a derivation cannot be terminated finitely, it is called an infinite SLD-derivation.
+
+***:blue_book: Example 7.4.6***
+
+Examine the logic program `P`
+```
+```
