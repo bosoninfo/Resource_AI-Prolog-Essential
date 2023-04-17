@@ -241,3 +241,111 @@ A unifier `θ` is defined as the most general unifier of `L` if it satisfies the
 - Let `L = {p(X), p(Y)}`.
 - Let `θ = {X/Y}`. `θ` is the most general unifier.
 - Let `θ1 = {X/a, Y/a}`. `θ1` is a unifier of `L` and `θ1 = θφ`, where `φ = {Y/a}` is a substitution.
+
+### SLD-Derivation
+***:blue_book: Example 7.4.5***
+
+Let's again examine the logic program with a goad `← prime_suspect(Who, robbery)`.
+```
+possible_suspect(fred) ←
+prime_suspect(jack, robbery) ←
+crime(robbery, jo, wednesday, pub) ←
+was_at(fred, wednesday, pub) ←
+possible_suspect(micheal) ←
+was_at(micheal, wednesday, pub) ←
+had_motive_against(micheal, jo) ←
+prime_suspect(Person, Crime) ← 
+    crime(Crime, Victim, Time, Place) ∧
+    possible_suspect(Person) ∧ 
+    was_at(Person, Time, Place) ∧
+    had_motive_against(Person, Victim)
+```
+
+<img width="1101" alt="image" src="https://user-images.githubusercontent.com/19381768/232371845-dbc078a9-55ad-4f9c-beb5-832354495f21.png">
+
+### :star: `Definition` SLD-Derivation
+An SLD-derivation is a process to repeatedly derive a new goal from a logic problem and a given goal with certain computation rule by unification.
+
+Let `P` be a program. Let 
+
+$$G_i : \leftarrow S_1\land\cdots\land S_k\land\cdots\land S_n$$ 
+
+be the $i^{th}$ derived goal and $S_k$ be the subgoal chosen by the computation rule. If there is a clause 
+
+$$A\leftarrow A_1\land\cdots\land A_m$$
+
+in $P$, $S_k$ and $A$ can be unified by $θ_i$ ($θ_i$ is the mgu), then the derived goal is 
+
+$$G_{i+1} :\leftarrow (S_1\land\cdots\land A_1\land\cdots\land A_m\land\cdots\land S_n)θ_i$$
+
+An SLD-derivation is termiated by one of following two conditions
+<ol type="a">
+    <li>the goal is empty.</li>
+    <li>no subgoals can be unified with any heads of the clauses in P.</li>
+</ol>
+
+If a SLD-derivation is terminated by (1), the derivation is successful and $θ_0θ_1\cdotsθ_k$ is defined as the answer to the goal. If a SLD-derivation is terminated by (2), the derivation is failed.
+
+- A successful SLD-derivation is also called an SLD-refutation
+- Since both sucessful and failed SLD-derivations are derivations with finite steps, they are finite SLD-derivations.
+- If a derivation cannot be terminated finitely, it is called an infinite SLD-derivation.
+
+***:blue_book: Example 7.4.6***
+
+Examine the logic program `P`
+```
+dau(samantha, rebecca) ←
+dau(samantha, michael) ←
+dau(rebecca, tom) ←
+son(jack, michael) ←
+male(tom) ←
+male(michael) ←
+male(jack) ←
+parent(rebecca, anna) ←
+parent(elizabeth, michael) ←
+parent(X, Y) ← son(Y, X)
+parent(X, Y) ← dau(Y, X)
+father(X, Y) ← parent(X, Y) ∧ male(X)
+```
+Let the goal be `← son(jack, X) ∧ father(X, jack)`
+### :seedling: i = 0
+|General|Example|
+|--|--|
+|Let $G_i :\leftarrow S_1\land S_2\land\cdots\land S_n$ be the goal|`← son(jack, X) ∧ father(X, jack)`|
+|and $S_1$ be the subgoal chosen by the computation rule.|`son(jack, X)`|
+|If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ is `P`, and $S_1$ and `A` can be unified by $θ_i$ (mgu)|`son(jack, michael) ←` is a clause of the program, and `son(jack, X)` and `son(jack, micheal)` can be unified by `θ_0 = {X/micheal}`|
+|then the drived goal is $G_{i+1} :\leftarrow (A_1,\cdots,A_m,S_2,\cdots,S_n)θ_i$|`← father(michael, jack)`|
+### :seedling: i = 1
+|General|Example|
+|--|--|
+|Let $G_i :\leftarrow S_1\land S_2\land\cdots\land S_n$ be the goal|`← father(michael, jack)`|
+|and $S_1$ be the subgoal chosen by the computation rule.|`father(michael, jack)`|
+|If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ is `P`, and $S_1$ and `A` can be unified by $θ_i$ (mgu)|`father(X, Y) ← parent(X, Y) ∧ male(X)` is a clause of the program, and `father(michael, jack)` and `father(X, Y)` can be unified by `θ_1 = {X/micheal, Y/jack}`|
+|then the drived goal is $G_{i+1} :\leftarrow (A_1,\cdots,A_m,S_2,\cdots,S_n)θ_i$|`← parent(michael, jack) ∧ male(michael)`|
+### :seedling: i = 2
+|General|Example|
+|--|--|
+|Let $G_i :\leftarrow S_1\land S_2\land\cdots\land S_n$ be the goal|`← parent(michael, jack) ∧ male(michael)`|
+|and $S_1$ be the subgoal chosen by the computation rule.|`parent(michael, jack)`|
+|If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ is `P`, and $S_1$ and `A` can be unified by $θ_i$ (mgu)|`parent(X, Y) ← son(Y, X)` is a clause of the program, and `parent(michael, jack)` and `parent(X, Y)` can be unified by `θ_2 = {X/micheal, Y/jack}`|
+|then the drived goal is $G_{i+1} :\leftarrow (A_1,\cdots,A_m,S_2,\cdots,S_n)θ_i$|`← son(jack, michael) ∧ male(michael)`|
+### :seedling: i = 3
+|General|Example|
+|--|--|
+|Let $G_i :\leftarrow S_1\land S_2\land\cdots\land S_n$ be the goal|`← son(jack, michael) ∧ male(michael)`|
+|and $S_1$ be the subgoal chosen by the computation rule.|`son(jack, michael)`|
+|If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ is `P`, and $S_1$ and `A` can be unified by $θ_i$ (mgu)|`son(jack, michael) ←` is a clause of the program, `θ_3 = {}`|
+|then the drived goal is $G_{i+1} :\leftarrow (A_1,\cdots,A_m,S_2,\cdots,S_n)θ_i$|`← male(michael)`|
+### :seedling: i = 4
+|General|Example|
+|--|--|
+|Let $G_i :\leftarrow S_1\land S_2\land\cdots\land S_n$ be the goal|`← male(michael)`|
+|and $S_1$ be the subgoal chosen by the computation rule.|`male(michael)`|
+|If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ is `P`, and $S_1$ and `A` can be unified by $θ_i$ (mgu)|`male(michael) ←` is a clause of the program, `θ_4 = {}`|
+|then the drived goal is $G_{i+1} :\leftarrow (A_1,\cdots,A_m,S_2,\cdots,S_n)θ_i$|`←`|
+|||
+|If a SLD-derivation is terminated by (a), we say the derivation is successful.|The SLD-derivation is terminated by the condition (a), so it is successful.|
+|$θ_0θ_1\cdotsθ_k$ is defined as the answer to the goal.|`θ_0 = {X/michael}`<br>`θ_1 = {X/michael, Y/jack}`<br>`θ_2 = {X/michael, Y/jack}`<br>`θ_3 = {}`<br>`θ_4 = {}`<br>`θ0θ1θ2θ3θ4 = {X/michael, Y/jack}`|
+
+Note that to prove a goal, we need to find all the successful SLD-derivations.
+Note
