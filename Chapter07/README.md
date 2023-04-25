@@ -260,7 +260,18 @@ prime_suspect(Person, Crime) ←
     was_at(Person, Time, Place) ∧
     had_motive_against(Person, Victim)
 ```
-
+```mermaid
+flowchart TD
+    A["prime_suspect(Who,robbery)"] -- "{Who/jack}" --> B["prime_suspect(jack, robbery)"]
+    A -- "{Person/Who, Crime/robbery}" --> C["crime(Crime, Victim, Time, Place) ∧
+    possible_suspect(Who) ∧ 
+    was_at(Who, Time, Place) ∧
+    had_motive_against(Who, Victim)"]
+    C -- "{Victim/jo, Time/Wednesday, Place/pub}" --> D["possible_suspect(Who) ∧ 
+    was_at(Who, Time, Place) ∧
+    had_motive_against(Who, Victim)"]
+    C --> E[...]
+```
 <img width="1101" alt="image" src="https://user-images.githubusercontent.com/19381768/232371845-dbc078a9-55ad-4f9c-beb5-832354495f21.png">
 
 ### :star: `Definition` SLD-Derivation
