@@ -348,4 +348,115 @@ Let the goal be `← son(jack, X) ∧ father(X, jack)`
 |$θ_0θ_1\cdotsθ_k$ is defined as the answer to the goal.|`θ_0 = {X/michael}`<br>`θ_1 = {X/michael, Y/jack}`<br>`θ_2 = {X/michael, Y/jack}`<br>`θ_3 = {}`<br>`θ_4 = {}`<br>`θ0θ1θ2θ3θ4 = {X/michael, Y/jack}`|
 
 Note that to prove a goal, we need to find all the successful SLD-derivations.
-Note
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
+## 7.5 SLD-Tree
+### :star: `Definition` SLD-Tree
+An SLD-tree is a graph that illustrates SLD-derivations to prove a goal. The original goal $G_0$ is the root of the tree. If the goal $G_{i+1}$ is derived from $G_i$, then $G_{i+1}$ is a child of $G_i$. All substitutions are labelled on the tree. A white block represents a successful derivation. A black block represents a failed derivation.
+
+***:blue_book: Example 7.5.1***
+
+Consider the logic program `P`
+```
+p(a,b) ←
+s(a) ←
+q(b,b) ←
+m(b) ←
+p(X,Y) ← s(X) ∧ t(Y)
+p(X,Y) ← m(X) ∧ q(X,Y)
+q(b,Y) ← s(Y)
+```
+and the goal `← p(X,Y)`.
+
+1. With the goal `G0: ← p(X,Y)`, `p(X,Y)` is chosen subgoal. Because `p(a,b) ←` is a clause of `P` and the clause can be unified with the chosen subgoal. The SLD-derivation is successful and `θ0 = {X/a, Y/b}` is the unifier.
+```mermaid
+flowchart TD
+    A["p(X,Y)"] -- "{X/a, Y/b}" --> B[ ]
+    B:::classwhite
+    classDef classwhite fill:#fff
+```
+
+2. `G0 : ← p(X,Y)`, `p(X,Y)` is the chosen subgoal. Because `p(X,Y) ← s(X) ∧ t(Y)` is a clause of `P`, the derived goal becomes `G1: ← s(X) ∧ t(Y)` and the unifier `θ0 = {}`.
+```mermaid
+flowchart TD
+    A["p(X,Y)"] -- "{X/a, Y/b}" --> B[ ]
+    A --> C["s(X),t(Y)"]
+    B:::classwhite
+    classDef classwhite fill:#fff
+```
+- Now `G1: ← s(X) ∧ t(Y)`, `s(X)` is the chosen subgoal. Since `s(a) ←` is a clause of the program and `s(X)` and `s(a)` are unifiable (`θ1 = {X/a}`), the derived goal is `G2: ← t(Y)`.
+```mermaid
+flowchart TD
+    A["p(X,Y)"] -- "{X/a, Y/b}" --> B[ ]
+    A --> C["s(X),t(Y)"]
+    C -- "{X/a}" --> D["t(Y)"]
+    B:::classwhite
+    classDef classwhite fill:#fff
+```
+- With `G2: ← t(Y)`, `t(Y)` is the chosen subgoal. As there is no clause that can be unified with `t(Y)`, the derivation is terminated by the condition (b). The derivation is failed.
+```mermaid
+flowchart TD
+    A["p(X,Y)"] -- "{X/a, Y/b}" --> B[ ]
+    A --> C["s(X),t(Y)"]
+    C -- "{X/a}" --> D["t(Y)"] --> E[ ]
+    B:::classwhite
+    E:::classblack
+    classDef classwhite fill:#fff
+    classDef classblack fill:#000
+```
+3. `G0 : ¬p(X,Y)`, ... ..., There are two further successful SLD-derivations. Their unifiers are `θ0 θ1 θ2 = {X/b, Y/b}` and `θ0 θ1 θ2 = {X/b, Y/a}`. Finally, the SLD-tree is
+```mermaid
+flowchart TD
+    A["p(X,Y)"] -- "{X/a, Y/b}" --> B[ ]
+    A --> C["s(X),t(Y)"]
+    C -- "{X/a}" --> D["t(Y)"] --> E[ ]
+    A --> F["m(X),q(X,Y)"]
+    F -- "{X/b}" --> G["q(b,Y)"]
+    G -- "{Y/b}" --> H[ ]
+    G --> I["s(Y)"] -- "{Y/a}" --> J[ ]
+    B:::classwhite
+    E:::classblack
+    H:::classwhite
+    J:::classwhite
+    classDef classwhite fill:#fff
+    classDef classblack fill:#000
+```
+The answers are
+```
+X = a, Y = b;
+X = b, Y = b;
+X = b, Y = a.
+```
+
+***:brain: Exercise 7.5.2***
+
+Given the logic program below, draw the SLD-tree for the derivation of `← p(X)`.
+```
+q(b) ←
+r(a) ← 
+r(b) ←
+s(a) ← 
+s(c) ←
+t(a) ← 
+t(b) ← 
+t(d) ← 
+t(e) ←
+q(X) ← r(X) ∧ s(X)
+p(X) ← q(X) ∧ t(X)
+```
+:bulb: sample answer
+```mermaid
+flowchart TD
+    A["p(X)"] --> B["q(X),t(X)"]
+    B -- "{X/b}" --> C["t(b)"] --> D[ ]
+    B --> E["r(X),s(X),t(X)"]
+    E -- "{X/a}" --> F["s(a),t(a)"]
+    F --> G["t(a)"] --> H[ ]
+    E -- "{X/b}" --> I["s(b),t(b)"] --> J[ ]
+    D:::classwhite
+    H:::classwhite
+    J:::classblack
+    classDef classwhite fill:#fff
+    classDef classblack fill:#000
+```
