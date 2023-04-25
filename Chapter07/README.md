@@ -460,7 +460,8 @@ flowchart TD
     classDef classwhite fill:#fff
     classDef classblack fill:#000
 ```
-## 7.6 Computation Rule, Search Rule and Ordering Rule
+## 7.6 Other concepts
+### 7.6.1 Computation Rule, Search Rule and Ordering Rule
 SLD-resolution contains three rules: computation rule, search rule, and ordering rule.
 ### :star: `Definition` Computation Rule
 A computation rule is a function from a set of definite goals to a set of atoms that the value of the function for a goal is an atom, called the selected atom, in that goal.
@@ -470,7 +471,18 @@ A search rule is a strategy of searching for SLD-trees to find success branches.
 An ordering rule specifies the order in which program clauses are to be tried in the derivation.
 
 The computation, search, and ordering rules applied in SLDresolution are:
-(a) select subgoals according to their order(from left to right);
-(b) depth-first search;
-(c) respect the order of the clauses in the program.
+- select subgoals according to their order(from left to right);
+- depth-first search;
+- respect the order of the clauses in the program.
+
 A PROLOG executor is based on SLD-resolution.
+
+### 7.6.2 Soundness and Completeness
+In a logic program `P`, "the goal `G` can be derived by SLD-resolution" means that the SLD-derivation with the goal `G` on the program `P` is successful; "the goal `G` cannot be derived by the SLD-resolution" means that the derivation with `G` on `P` is failed.
+### :star: `Definition` Soundness
+A resolution is sound if the derived is a consequence of the program.
+### :star: `Definition` Completeness
+A resolution is complete if all consequences of the program can be derived by the resolution.
+### :star: `Theorem`
+- SLD-resolution is sound.
+- SLD-resolution is complete if the derivation is finite.
