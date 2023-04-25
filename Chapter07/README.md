@@ -427,3 +427,25 @@ flowchart TD
     classDef classwhite fill:#fff
     classDef classblack fill:#000
 ```
+***:brain: Exercise 7.5.2***
+Given the logic program below, draw the SLD-tree for the derivation of `← p(X)`.
+```
+q(b) ←
+r(a) ← 
+r(b) ←
+s(a) ← 
+s(c) ←
+t(a) ← 
+t(b) ← 
+t(d) ← 
+t(e) ←
+q(X) ← r(X) ∧ s(X)
+p(X) ← q(X) ∧ t(X)
+```
+<details>
+  <summary>:bulb: sample answer</summary>
+  
+  ```mermaid
+  
+  ```
+</details>
