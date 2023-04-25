@@ -372,28 +372,60 @@ and the goal `← p(X,Y)`.
 1. With the goal `G0: ← p(X,Y)`, `p(X,Y)` is chosen subgoal. Because `p(a,b) ←` is a clause of `P` and the clause can be unified with the chosen subgoal. The SLD-derivation is successful and `θ0 = {X/a, Y/b}` is the unifier.
 ```mermaid
 flowchart TD
-    A["p(X,Y)"] --> B["{X/a, Y/b}"]
+    A["p(X,Y)"] --> B["{X/a, Y/b}"] --> C[]
+    C:::classwhite
+    classDef classwhite fill:#fff
 ```
 
 2. `G0 : ← p(X,Y)`, `p(X,Y)` is the chosen subgoal. Because `p(X,Y) ← s(X) ∧ t(Y)` is a clause of `P`, the derived goal becomes `G1: ← s(X) ∧ t(Y)` and the unifier `θ0 = {}`.
 ```mermaid
 flowchart TD
     A["p(X,Y)"] --> B["{X/a, Y/b}"]
-    A --> C["s(X),t(Y)"]
+    B --> C[]
+    C:::classwhite
+    A --> D["s(X),t(Y)"]
+    classDef classwhite fill:#fff
 ```
-Now `G1: ← s(X) ∧ t(Y)`, `s(X)` is the chosen subgoal. Since `s(a) ←` is a clause of the program and `s(X)` and `s(a)` are unifiable (`θ1 = {X/a}`), the derived goal is `G2: ← t(Y)`.
+- Now `G1: ← s(X) ∧ t(Y)`, `s(X)` is the chosen subgoal. Since `s(a) ←` is a clause of the program and `s(X)` and `s(a)` are unifiable (`θ1 = {X/a}`), the derived goal is `G2: ← t(Y)`.
 ```mermaid
 flowchart TD
     A["p(X,Y)"] --> B["{X/a, Y/b}"]
-    A --> C["s(X),t(Y)"]
-    C --> D["{X/a}"]
-    D --> E["t(Y)"]
+    B --> C[]
+    C:::classwhite
+    A --> D["s(X),t(Y)"]
+    D --> E["{X/a}"]
+    E --> F["t(Y)"]
+    classDef classwhite fill:#fff
 ```
-With `G2: ← t(Y)`, `t(Y)` is the chosen subgoal. As there is no clause that can be unified with `t(Y)`, the derivation is terminated by the condition (b). The derivation is failed.
+- With `G2: ← t(Y)`, `t(Y)` is the chosen subgoal. As there is no clause that can be unified with `t(Y)`, the derivation is terminated by the condition (b). The derivation is failed.
 ```mermaid
 flowchart TD
     A["p(X,Y)"] --> B["{X/a, Y/b}"]
-    A --> C["s(X),t(Y)"]
-    C --> D["{X/a}"]
-    D --> E["t(Y)"]
+    B --> C[]
+    C:::classwhite
+    A --> D["s(X),t(Y)"]
+    D --> E["{X/a}"]
+    E --> F["t(Y)"]
+    F --> G[ ]
+    G:::classblack
+    classDef classwhite fill:#fff
+    classDef classblack fill:#000
+```
+3. `G0 : ¬p(X,Y)`, ... ..., There are two further successful SLD-derivations. Their unifiers are `θ0 θ1 θ2 = {X/b, Y/b}` and `θ0 θ1 θ2 = {X/b, Y/a}`. Finally, the SLD-tree is
+```mermaid
+flowchart TD
+    A["p(X,Y)"] --> B["{X/a, Y/b}"]
+    B --> C[]
+    C:::classwhite
+    A --> D["s(X),t(Y)"]
+    D --> E["{X/a}"]
+    E --> F["t(Y)"]
+    F --> G[ ]
+    F:::classblack
+    A --> H["m(X),q(X,Y)"]
+    H --> I["{X/b}"]
+    I --> J["q(b,Y)"]
+    J --> K["{Y/b}"]
+    classDef classwhite fill:#fff
+    classDef classblack fill:#000
 ```
