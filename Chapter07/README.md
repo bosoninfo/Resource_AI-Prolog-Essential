@@ -353,7 +353,9 @@ Let the goal be `← son(jack, X) ∧ father(X, jack)`
 |and $S_1$ be the subgoal chosen by the computation rule.|`male(michael)`|
 |If there is a clause $A\leftarrow A_1\land\cdots\land A_m$ is `P`, and $S_1$ and `A` can be unified by $θ_i$ (mgu)|`male(michael) ←` is a clause of the program, `θ_4 = {}`|
 |then the drived goal is $G_{i+1} :\leftarrow (A_1,\cdots,A_m,S_2,\cdots,S_n)θ_i$|`←`|
-|||
+
+|General|Example|
+|--|--|
 |If a SLD-derivation is terminated by (a), we say the derivation is successful.|The SLD-derivation is terminated by the condition (a), so it is successful.|
 |$θ_0θ_1\cdotsθ_k$ is defined as the answer to the goal.|`θ_0 = {X/michael}`<br>`θ_1 = {X/michael, Y/jack}`<br>`θ_2 = {X/michael, Y/jack}`<br>`θ_3 = {}`<br>`θ_4 = {}`<br>`θ0 θ1 θ2 θ3 θ4 = {X/michael, Y/jack}`|
 
