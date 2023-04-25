@@ -415,7 +415,7 @@ flowchart TD
     A --> D["s(X),t(Y)"]
     D --> E["{X/a}"]
     E --> F["t(Y)"] --> G[ ]
-    F:::classblack
+    G:::classblack
     A --> H["m(X),q(X,Y)"]
     H --> I["{X/b}"]
     I --> J["q(b,Y)"]
