@@ -460,3 +460,17 @@ flowchart TD
     classDef classwhite fill:#fff
     classDef classblack fill:#000
 ```
+## 7.6 Computation Rule, Search Rule and Ordering Rule
+SLD-resolution contains three rules: computation rule, search rule, and ordering rule.
+### :star: `Definition` Computation Rule
+A computation rule is a function from a set of definite goals to a set of atoms that the value of the function for a goal is an atom, called the selected atom, in that goal.
+### :star: `Definition` Search Rule
+A search rule is a strategy of searching for SLD-trees to find success branches.
+### :star: `Definition` Ordering Rule
+An ordering rule specifies the order in which program clauses are to be tried in the derivation.
+
+The computation, search, and ordering rules applied in SLDresolution are:
+(a) select subgoals according to their order(from left to right);
+(b) depth-first search;
+(c) respect the order of the clauses in the program.
+A PROLOG executor is based on SLD-resolution.
