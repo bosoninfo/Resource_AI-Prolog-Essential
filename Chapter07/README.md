@@ -1,4 +1,4 @@
-# 7 Reasoning
+# 7 Reasoning Part 1
 
 <p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
 
@@ -260,8 +260,18 @@ prime_suspect(Person, Crime) ←
     was_at(Person, Time, Place) ∧
     had_motive_against(Person, Victim)
 ```
-
-<img width="1101" alt="image" src="https://user-images.githubusercontent.com/19381768/232371845-dbc078a9-55ad-4f9c-beb5-832354495f21.png">
+```mermaid
+flowchart TD
+    A["prime_suspect(Who,robbery)"] -- "{Who/jack}" --> B["prime_suspect(jack, robbery)"]
+    A -- "{Person/Who, Crime/robbery}" --> C["crime(Crime, Victim, Time, Place) ∧
+    possible_suspect(Who) ∧ 
+    was_at(Who, Time, Place) ∧
+    had_motive_against(Who, Victim)"]
+    C -- "{Victim/jo, Time/Wednesday, Place/pub}" --> D["possible_suspect(Who) ∧ 
+    was_at(Who, Time, Place) ∧
+    had_motive_against(Who, Victim)"]
+    C --> E[...]
+```
 
 ### :star: `Definition` SLD-Derivation
 An SLD-derivation is a process to repeatedly derive a new goal from a logic problem and a given goal with certain computation rule by unification.
@@ -460,3 +470,32 @@ flowchart TD
     classDef classwhite fill:#fff
     classDef classblack fill:#000
 ```
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
+## 7.6 Other concepts
+### 7.6.1 Computation Rule, Search Rule and Ordering Rule
+SLD-resolution contains three rules: computation rule, search rule, and ordering rule.
+### :star: `Definition` Computation Rule
+A computation rule is a function from a set of definite goals to a set of atoms that the value of the function for a goal is an atom, called the selected atom, in that goal.
+### :star: `Definition` Search Rule
+A search rule is a strategy of searching for SLD-trees to find success branches.
+### :star: `Definition` Ordering Rule
+An ordering rule specifies the order in which program clauses are to be tried in the derivation.
+
+The computation, search, and ordering rules applied in SLDresolution are:
+- select subgoals according to their order(from left to right);
+- depth-first search;
+- respect the order of the clauses in the program.
+
+A PROLOG executor is based on SLD-resolution.
+
+### 7.6.2 Soundness and Completeness
+In a logic program `P`, "the goal `G` can be derived by SLD-resolution" means that the SLD-derivation with the goal `G` on the program `P` is successful; "the goal `G` cannot be derived by the SLD-resolution" means that the derivation with `G` on `P` is failed.
+### :star: `Definition` Soundness
+A resolution is sound if the derived is a consequence of the program.
+### :star: `Definition` Completeness
+A resolution is complete if all consequences of the program can be derived by the resolution.
+### :star: `Theorem`
+- SLD-resolution is sound.
+- SLD-resolution is complete if the derivation is finite.
