@@ -381,28 +381,28 @@ flowchart TD
 ```mermaid
 flowchart TD
     A["p(X,Y)"] --> B["{X/a, Y/b}"] --> C[ ]
-    C:::classwhite
     A --> D["s(X),t(Y)"]
+    C:::classwhite
     classDef classwhite fill:#fff
 ```
 - Now `G1: ← s(X) ∧ t(Y)`, `s(X)` is the chosen subgoal. Since `s(a) ←` is a clause of the program and `s(X)` and `s(a)` are unifiable (`θ1 = {X/a}`), the derived goal is `G2: ← t(Y)`.
 ```mermaid
 flowchart TD
     A["p(X,Y)"] --> B["{X/a, Y/b}"] --> C[ ]
-    C:::classwhite
     A --> D["s(X),t(Y)"]
     D --> E["{X/a}"]
     E --> F["t(Y)"]
+    C:::classwhite
     classDef classwhite fill:#fff
 ```
 - With `G2: ← t(Y)`, `t(Y)` is the chosen subgoal. As there is no clause that can be unified with `t(Y)`, the derivation is terminated by the condition (b). The derivation is failed.
 ```mermaid
 flowchart TD
     A["p(X,Y)"] --> B["{X/a, Y/b}"] --> C[ ]
-    C:::classwhite
     A --> D["s(X),t(Y)"]
     D --> E["{X/a}"]
     E --> F["t(Y)"] --> G[ ]
+    C:::classwhite
     G:::classblack
     classDef classwhite fill:#fff
     classDef classblack fill:#000
@@ -411,18 +411,18 @@ flowchart TD
 ```mermaid
 flowchart TD
     A["p(X,Y)"] --> B["{X/a, Y/b}"] --> C[ ]
-    C:::classwhite
     A --> D["s(X),t(Y)"]
     D --> E["{X/a}"]
     E --> F["t(Y)"] --> G[ ]
-    G:::classblack
     A --> H["m(X),q(X,Y)"]
     H --> I["{X/b}"]
     I --> J["q(b,Y)"]
     J --> K["{Y/b}"] --> L[ ]
-    L:::classwhite
     J --> M["s(Y)"]
     M --> N["{Y/a}"] --> O[ ]
+    C:::classwhite
+    G:::classblack
+    L:::classwhite
     O:::classwhite
     classDef classwhite fill:#fff
     classDef classblack fill:#000
@@ -442,10 +442,18 @@ t(e) ←
 q(X) ← r(X) ∧ s(X)
 p(X) ← q(X) ∧ t(X)
 ```
-<details>
-  <summary>:bulb: sample answer</summary>
-  
-  ```mermaid
-  
-  ```
-</details>
+:bulb: sample answer
+```mermaid
+flowchart TD
+    A["p(X)"] --> B["q(X),t(X)"]
+    B -- "{X/b}" --> C["t(b)"] --> D[ ]
+    B --> E["r(X),s(X),t(X)"]
+    E -- "{X/a}" --> F["s(a),t(a)"]
+    F --> G["t(a)"] --> H[ ]
+    E -- "{X/b}" --> I["s(b),t(b)"] --> J[ ]
+    D:::classwhite
+    H:::classwhite
+    J:::classblack
+    classDef classwhite fill:#fff
+    classDef classblack fill:#000
+```
