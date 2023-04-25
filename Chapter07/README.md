@@ -348,4 +348,36 @@ Let the goal be `← son(jack, X) ∧ father(X, jack)`
 |$θ_0θ_1\cdotsθ_k$ is defined as the answer to the goal.|`θ_0 = {X/michael}`<br>`θ_1 = {X/michael, Y/jack}`<br>`θ_2 = {X/michael, Y/jack}`<br>`θ_3 = {}`<br>`θ_4 = {}`<br>`θ0θ1θ2θ3θ4 = {X/michael, Y/jack}`|
 
 Note that to prove a goal, we need to find all the successful SLD-derivations.
-Note
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
+## 7.5 SLD-Tree
+### :star: `Definition` SLD-Tree
+An SLD-tree is a graph that illustrates SLD-derivations to prove a goal. The original goal $G_0$ is the root of the tree. If the goal $G_{i+1}$ is derived from $G_i$, then $G_{i+1}$ is a child of $G_i$. All substitutions are labelled on the tree. A white block represents a successful derivation. A black block represents a failed derivation.
+
+***:blue_book: Example 7.5.1***
+
+Consider the logic program `P`
+```
+p(a,b) ←
+s(a) ←
+q(b,b) ←
+m(b) ←
+p(X,Y) ← s(X) ∧ t(Y)
+p(X,Y) ← m(X) ∧ q(X,Y)
+q(b,Y) ← s(Y)
+```
+and the goal `← p(X,Y)`.
+
+1. With the goal `G0: ← p(X,Y)`, `p(X,Y)` is chosen subgoal. Because `p(a,b) ←` is a clause of `P` and the clause can be unified with the chosen subgoal. The SLD-derivation is successful and `θ0 = {X/a, Y/b}` is the unifier.
+```mermaid
+flowchart TD
+    A["p(X,Y)"] --> B["{X/a, Y/b}"]
+```
+
+2. `G0 : ← p(X,Y)`, `p(X,Y)` is the chosen subgoal. Because `p(X,Y) ← s(X) ∧ t(Y)` is a clause of `P`, the derived goal becomes `G1: ← s(X) ∧ t(Y)` and the unifier `θ0 = {}`.
+```mermaid
+flowchart TD
+    A["p(X,Y)"] --> B["{X/a, Y/b}"]
+    A --> C["s(X),t(Y)"]
+```
