@@ -460,6 +460,9 @@ flowchart TD
     classDef classwhite fill:#fff
     classDef classblack fill:#000
 ```
+
+<p align="center"><img height="75" src="https://user-images.githubusercontent.com/19381768/227871683-af08b378-b283-470e-8b78-bc05937d585b.png"/></p>
+
 ## 7.6 Other concepts
 ### 7.6.1 Computation Rule, Search Rule and Ordering Rule
 SLD-resolution contains three rules: computation rule, search rule, and ordering rule.
