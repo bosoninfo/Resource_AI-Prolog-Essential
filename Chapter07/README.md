@@ -272,7 +272,6 @@ flowchart TD
     had_motive_against(Who, Victim)"]
     C --> E[...]
 ```
-<img width="1101" alt="image" src="https://user-images.githubusercontent.com/19381768/232371845-dbc078a9-55ad-4f9c-beb5-832354495f21.png">
 
 ### :star: `Definition` SLD-Derivation
 An SLD-derivation is a process to repeatedly derive a new goal from a logic problem and a given goal with certain computation rule by unification.
