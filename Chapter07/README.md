@@ -381,3 +381,19 @@ flowchart TD
     A["p(X,Y)"] --> B["{X/a, Y/b}"]
     A --> C["s(X),t(Y)"]
 ```
+Now `G1: ← s(X) ∧ t(Y)`, `s(X)` is the chosen subgoal. Since `s(a) ←` is a clause of the program and `s(X)` and `s(a)` are unifiable (`θ1 = {X/a}`), the derived goal is `G2: ← t(Y)`.
+```mermaid
+flowchart TD
+    A["p(X,Y)"] --> B["{X/a, Y/b}"]
+    A --> C["s(X),t(Y)"]
+    C --> D["{X/a}"]
+    D --> E["t(Y)"]
+```
+With `G2: ← t(Y)`, `t(Y)` is the chosen subgoal. As there is no clause that can be unified with `t(Y)`, the derivation is terminated by the condition (b). The derivation is failed.
+```mermaid
+flowchart TD
+    A["p(X,Y)"] --> B["{X/a, Y/b}"]
+    A --> C["s(X),t(Y)"]
+    C --> D["{X/a}"]
+    D --> E["t(Y)"]
+```
