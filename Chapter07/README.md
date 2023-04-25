@@ -430,6 +430,7 @@ X = b, Y = a.
 ```
 
 ***:brain: Exercise 7.5.2***
+
 Given the logic program below, draw the SLD-tree for the derivation of `← p(X)`.
 ```
 q(b) ←
