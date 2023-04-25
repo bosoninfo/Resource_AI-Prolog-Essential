@@ -355,7 +355,7 @@ Let the goal be `← son(jack, X) ∧ father(X, jack)`
 |then the drived goal is $G_{i+1} :\leftarrow (A_1,\cdots,A_m,S_2,\cdots,S_n)θ_i$|`←`|
 |||
 |If a SLD-derivation is terminated by (a), we say the derivation is successful.|The SLD-derivation is terminated by the condition (a), so it is successful.|
-|$θ_0θ_1\cdotsθ_k$ is defined as the answer to the goal.|`θ_0 = {X/michael}`<br>`θ_1 = {X/michael, Y/jack}`<br>`θ_2 = {X/michael, Y/jack}`<br>`θ_3 = {}`<br>`θ_4 = {}`<br>`θ0θ1θ2θ3θ4 = {X/michael, Y/jack}`|
+|$θ_0θ_1\cdotsθ_k$ is defined as the answer to the goal.|`θ_0 = {X/michael}`<br>`θ_1 = {X/michael, Y/jack}`<br>`θ_2 = {X/michael, Y/jack}`<br>`θ_3 = {}`<br>`θ_4 = {}`<br>`θ0 θ1 θ2 θ3 θ4 = {X/michael, Y/jack}`|
 
 Note that to prove a goal, we need to find all the successful SLD-derivations.
 
